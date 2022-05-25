@@ -1,0 +1,13 @@
+.booking--section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form--container {
+  background-color: #fff;
+  width: 80vw;
+  height: auto;
+  position: absolute;
+  bottom: 300px;
+}
