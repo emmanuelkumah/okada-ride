@@ -1,13 +1,94 @@
-.booking--section {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.form--container {
+.booking--container {
+  margin: 0 auto;
   background-color: #fff;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem;
   width: 80vw;
-  height: auto;
+  position: relative;
+  bottom: 25rem;
+}
+.bk-caption {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.bk-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+select,
+input[type="date"],
+input[type="time"] {
+  padding: 0.7rem;
+  outline: none;
+  border: 1px solid #d0db97;
+  border-radius: 5px;
+}
+.motorbike-brand p,
+.pickup-loc p,
+.dropoff-loc p,
+.pickup-date p,
+.dropoff-date p,
+.pickup-time p,
+.dropoff-time p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.motorbike-brand select {
+  width: 250px;
+}
+.pickup-loc p {
+  padding-left: 1rem;
+}
+.pickup-loc select {
+  width: 350px;
+  margin-left: 1rem;
+}
+
+.pickup-date input[type="date"],
+.dropoff-date input[type="date"] {
+  width: 200px;
+  margin-right: 1rem;
+}
+.dropoff-date input[type="date"] {
+  margin-left: 1rem;
+}
+.dropoff-date p {
+  margin-left: 1rem;
+}
+.pickup-time input[type="time"],
+.dropoff-time input[type="time"] {
+  width: 120px;
+}
+.dropoff-loc select {
+  width: 305px;
+  margin-left: 1rem;
+}
+.btn-container {
+  position: relative;
+}
+.btn-search {
   position: absolute;
-  bottom: 300px;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f24c4c;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  color: #fff;
+  top: 3.3rem;
+  width: 170px;
+  padding: 0.7rem;
+  outline: none;
+  font-size: 1.2rem;
+}
+.react-icons {
+  color: #f24c4c;
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
