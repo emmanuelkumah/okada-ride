@@ -5,7 +5,7 @@ import motor from "./image/motor.png";
 
 export const HeroSection = () => {
   return (
-    <div>
+    <div className={classes["hero-container"]}>
       <div className={classes.row}>
         <div className={classes.column}>
           <section className={classes.heroCaption}>
@@ -21,7 +21,6 @@ export const HeroSection = () => {
         <div className={classes.column}>
           <img src={HeroBanner} alt="heroBaner" />
           <div className={classes["motor--section"]}>
-            {" "}
             <img
               src={motor}
               alt="motorCycle"

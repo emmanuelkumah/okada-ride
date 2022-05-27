@@ -26,8 +26,8 @@ export const BookingForm = () => {
     console.log(dropOffTimeRef.current.value);
   };
   return (
-    <div className={classes["booking--container"]}>
-      <section>
+    <div className={classes["bkSection"]}>
+      <section className={classes["booking--container"]}>
         <h1 className={classes["bk-caption"]}>Book a ride</h1>
         <form className={classes["bk-form"]}>
           <div className={classes["motorbike-brand"]}>

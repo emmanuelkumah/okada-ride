@@ -1,13 +1,18 @@
+.bkSection {
+  position: relative;
+}
 .booking--container {
-  margin: 0 auto;
   background-color: #fff;
   border-bottom-left-radius: 2rem;
   border-top-right-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 3rem;
   width: 80vw;
-  position: relative;
-  bottom: 25rem;
+  margin: 40px auto;
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  right: 40px;
 }
 .bk-caption {
   font-family: "Montserrat", sans-serif;
