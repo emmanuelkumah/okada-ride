@@ -1,0 +1,30 @@
+.faq-container {
+  margin: 0 2rem 1rem 2rem;
+  background-color: #fff;
+}
+.faq-Caption {
+  padding: 2rem;
+  text-transform: uppercase;
+  color: #293462;
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.faq-question h2 {
+  font-size: 1.5rem;
+  color: #293462;
+}
+.faq-info {
+  font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 1.2;
+  padding: 1rem;
+}
+.faq-icon {
+  color: red;
+}

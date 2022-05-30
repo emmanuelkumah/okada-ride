@@ -7,7 +7,7 @@ import { BsShop } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 const About = () => {
   return (
-    <div>
+    <div className={classes["about-container"]}>
       <div className={classes["about-row"]}>
         <div className={classes["about-col"]}>
           <img src={aboutImg} alt="about" className={classes["about-img"]} />

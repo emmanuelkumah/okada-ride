@@ -1,3 +1,7 @@
+.about-container {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 .about-row {
   display: flex;
   margin-top: 4rem;
