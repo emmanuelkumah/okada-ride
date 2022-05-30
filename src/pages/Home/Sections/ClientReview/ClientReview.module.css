@@ -1,0 +1,60 @@
+.feature-row {
+  display: flex;
+}
+.feature-col {
+  flex: 50%;
+}
+.review-container {
+  background-color: #ffedea;
+  display: flex;
+  padding: 3rem;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  border: 6px solid #293462;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.img-container {
+  position: relative;
+}
+.review-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.review-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+.review-author {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #293462;
+}
+.prev-btn,
+.next-btn {
+  font-size: 2rem;
+  margin: 1rem;
+  background: transparent;
+  color: #293462;
+  border: none;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  color: #f6b100;
+  transform: scale(2);
+}

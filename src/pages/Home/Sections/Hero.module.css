@@ -33,10 +33,47 @@
 .heroText_ride {
   color: #f6ae2d;
 }
-.motor--section {
+
+.heroImg-container {
   position: relative;
 }
+
+.clouds-img {
+  width: 120px;
+  position: absolute;
+  right: 200px;
+  top: 10px;
+  animation: clouds 10s infinite 2s alternate-reverse;
+}
+
+.birds-img {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  width: 100px;
+  z-index: 999999;
+  animation: birds 10s infinite 2s alternate;
+}
+
 .motor-img {
   position: absolute;
-  bottom: 445px;
+  top: 100px;
+  left: 0;
+}
+
+@keyframes clouds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100px);
+  }
+}
+@keyframes birds {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(500px);
+  }
 }

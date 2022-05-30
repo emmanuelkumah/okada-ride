@@ -30,22 +30,18 @@
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
-/* clip-path: polygon(
-  84% 35%,
-  68% 26%,
-  39% 16%,
-  13% 14%,
-  5% 24%,
-  0% 47%,
-  8% 75%,
-  26% 98%,
-  32% 98%,
-  62% 89%,
-  62% 88%,
-  75% 73%,
-  85% 59%,
-  91% 44%
-); */
+
 .about-stats {
   display: flex;
+}
+.icon {
+  font-size: 2rem;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.icon span {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #f6b100;
+  font-size: 2rem;
 }

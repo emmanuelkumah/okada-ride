@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./Hero.module.css";
 import HeroBanner from "./image/banner_image.png";
 import motor from "./image/motor.png";
+import clouds from "./image/sunClouds.png";
+import birds from "./image/birds.png";
 
 export const HeroSection = () => {
   return (
@@ -19,8 +21,10 @@ export const HeroSection = () => {
           </section>
         </div>
         <div className={classes.column}>
-          <img src={HeroBanner} alt="heroBaner" />
-          <div className={classes["motor--section"]}>
+          <div className={classes["heroImg-container"]}>
+            <img src={HeroBanner} alt="heroBaner" />
+            <img src={clouds} alt="clouds" className={classes["clouds-img"]} />
+            <img src={birds} alt="birds" className={classes["birds-img"]} />
             <img
               src={motor}
               alt="motorCycle"

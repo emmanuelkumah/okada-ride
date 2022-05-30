@@ -4,7 +4,7 @@ import Features from "./Home/Sections/Features";
 import { HeroSection } from "./Home/Sections/Hero";
 import NavBar from "./Home/Sections/NavBar";
 import About from "./Home/Sections/About";
-// import Navigation from "./Home/Sections/Navigation";
+import ClientReview from "./Home/Sections/ClientReview/ClientReview";
 
 const HomePage = () => {
   return (
@@ -15,6 +15,7 @@ const HomePage = () => {
       <main>
         <Features />
         <About />
+        <ClientReview />
       </main>
       <footer>
         <h2>Footer content goes here</h2>{" "}

@@ -4,6 +4,7 @@ import aboutImg from "./image/about2.jpg";
 import { FaMotorcycle } from "react-icons/fa";
 import { GiAutoRepair } from "react-icons/gi";
 import { BsShop } from "react-icons/bs";
+import { IconContext } from "react-icons/lib";
 const About = () => {
   return (
     <div>
@@ -23,18 +24,31 @@ const About = () => {
               your productive hours in traffic jams
             </p>
             <div className={classes["about-stats"]}>
-              <p>
-                <FaMotorcycle />
-                <span>5</span>Motorbike Brands
-              </p>
-              <p>
-                <BsShop />
-                <span>13</span>Rental Outlets
-              </p>
-              <p>
-                <GiAutoRepair />
-                <span>3</span>Repair Shops
-              </p>
+              <IconContext.Provider
+                value={{
+                  color: "#f6b100",
+                  size: "3rem",
+                }}
+              >
+                <div>
+                  <FaMotorcycle />
+                </div>
+                <p className={classes["icon"]}>
+                  <span>5</span>Brands
+                </p>
+                <div>
+                  <BsShop />
+                </div>
+                <p className={classes["icon"]}>
+                  <span>13</span>Outlets
+                </p>
+                <div>
+                  <GiAutoRepair />
+                </div>
+                <p className={classes["icon"]}>
+                  <span>3</span>Shops
+                </p>
+              </IconContext.Provider>
             </div>
           </section>
         </div>
