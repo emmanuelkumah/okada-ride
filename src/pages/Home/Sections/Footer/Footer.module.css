@@ -1,0 +1,9 @@
+.footer-container {
+  background-color: #294861;
+}
+.footer-container p {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 3rem;
+}

@@ -5,6 +5,7 @@ import { HeroSection } from "./Home/Sections/Hero";
 import NavBar from "./Home/Sections/NavBar";
 import About from "./Home/Sections/About";
 import FeatureTwo from "./Home/Sections/FeatureTwo/FeatureTwo";
+import Footer from "./Home/Sections/Footer/Footer";
 
 const HomePage = () => {
   return (
@@ -17,9 +18,7 @@ const HomePage = () => {
         <About />
         <FeatureTwo />
       </main>
-      <footer>
-        <h2>Footer content goes here</h2>{" "}
-      </footer>
+      <Footer />
     </>
   );
 };
