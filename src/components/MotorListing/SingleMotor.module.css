@@ -1,0 +1,104 @@
+.motor--item {
+  flex-basis: 30%;
+  background-color: #fff;
+  margin: 14px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #ffcf00;
+}
+.motor--item:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  cursor: pointer;
+}
+
+.motor--rating {
+  background-color: #ffcf00;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  color: #293462;
+}
+.motor--cover img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+.motor--cover img:hover,
+img:active {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.motor--rating {
+  background-color: #ffcf00;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 80px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.motor--content h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: #293462;
+}
+.motor--content h3:hover {
+  font-weight: 900;
+  transition: all 1.5s ease-in;
+  cursor: pointer;
+}
+.motor--specDetls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.motor--specDetls span {
+  font-family: "Montserrat", sans-serif;
+}
+.motor--specDetls p {
+  color: #293462;
+  font-weight: bolder;
+}
+.motor--price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.7rem;
+}
+.motor--price p {
+  padding: 0.3rem;
+  color: #293462;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+.motor--price span {
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+.motor-btnBk {
+  width: 50%;
+  border: none;
+  background-color: #293462;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+}
+.motor-btnBk:hover,
+.motor-btnBk:active {
+  background-color: #ffcf00;
+  color: #293462;
+  transition: all 1.3s ease-in-out;
+  cursor: pointer;
+}
