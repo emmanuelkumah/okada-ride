@@ -18,3 +18,14 @@ ul {
   top: 50px;
   float: left;
 }
+.motor--banner {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0.5) 0%,
+      rgba(26, 26, 117, 0.5) 42%
+    ),
+    url(../../../src/pages/Home/Sections/image/banner.jpg), no-repeat;
+
+  height: 200px;
+}

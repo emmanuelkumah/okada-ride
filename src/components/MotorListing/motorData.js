@@ -102,8 +102,7 @@ const data = [
       engineCapacity: "234.2 CC",
       mileage: "34 km/l",
       wheelType: "Alloy Wheels",
-      mileage: "29 km/l",
-      Brakes: "Dual Semi-floating Petals Discs",
+      brakes: "Dual Semi-floating Petals Discs",
       gears: "6 Speed",
     },
   },
@@ -215,23 +214,5 @@ const data = [
       gears: "4 Speed",
     },
   },
-  //   {
-  //     id: 12,
-  //     name: "Ninja H2R",
-  //     img: "https://images.carandbike.com/bike-images/large/kawasaki/ninja-zx-14r/kawasaki-ninja-zx-14r.webp?v=6",
-  //     brand: "Kawasaki",
-  //     rating: 4.1,
-  //     price: 24,
-  //     overview:
-  //       "The Kawasaki superbike is not a road bike but is limited to only tracks because of its mind-boggling specifications. With a 1000cc engine that produces power of 310 bhp at 14000 rpm and a peak torque of 165 Nm at 12500 rpm, this is an untamable beast controlled only by its superior top-quality brakes.",
-  //     specification: {
-  //       engine: 998.0,
-  //       fuelTank: 17.0,
-  //       WheelType: "Alloy Wheels",
-  //       fuelEconomy: 15,
-  //       Brakes: "Dual semi-floating Brembo Discs",
-  //       gears: 6,
-  //     },
-  //   },
 ];
 export default data;
