@@ -3,7 +3,7 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: flex;
   justify-content: space-between;
-  padding: 2rem 5rem;
+  padding: 1rem 5rem;
   z-index: 9999;
   transition: background-color 400ms cubic-bezier(0.075, 0.82, 0.165, 1) 200ms;
 }

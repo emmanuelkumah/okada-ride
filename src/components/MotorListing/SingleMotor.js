@@ -1,16 +1,19 @@
 import React from "react";
 import classes from "./SingleMotor.module.css";
+import { AiFillStar } from "react-icons/ai";
 
 const SingleMotor = ({ img, name, id, specification, price, rating }) => {
   return (
     <div className={classes["motor--item"]}>
       <li key={id}>
         <div className={classes["motor--cover"]}>
-          <span className={classes["motor--rating"]}>{rating}</span>
           <img src={img} alt={name} />
         </div>
         <div className={classes["motor--content"]}>
           <h3>{name}</h3>
+          <span className={classes["motor--rating"]}>
+            {rating} <AiFillStar />
+          </span>
         </div>
         <div className={classes["motor--spec"]}>
           <div className={classes["motor--specDetls"]}>
@@ -26,9 +29,9 @@ const SingleMotor = ({ img, name, id, specification, price, rating }) => {
             <p>Fuel Tank: </p> <span>{specification.fuelTank}</span>
           </div>
         </div>
-        <div className={classes["motor--price"]}>
+        <div className={classes["motor--priceContainer"]}>
           <p>
-            GHS {price} <span> per day</span>
+            GHS {price} <span className={classes["motor-price"]}> per day</span>
           </p>
           <button className={classes["motor-btnBk"]}>Book Ride</button>
         </div>

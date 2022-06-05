@@ -1,7 +1,6 @@
 .motor-container {
   background-color: #fafafa;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding: 4rem 2.5rem 5rem 2.5rem;
 }
 .motor-card {
   display: flex;

@@ -1,0 +1,46 @@
+.form--container {
+  background-color: #293462;
+  width: 100%;
+  padding: 2rem 6rem;
+  position: absolute;
+  top: 60%;
+}
+.form--fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.form--select,
+.form--input {
+  background: transparent;
+  color: #ffcf00;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+.form--label {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.form--icon {
+  margin-right: 1rem;
+}
+.btn--search button {
+  position: relative;
+  top: 38px;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: #293462;
+  background-color: #ffcf00;
+  padding: 0.7rem 1.7rem;
+  border-radius: 5px;
+}
+.btn--search button:hover,
+button:active {
+  background-color: transparent;
+  border: 1px solid #ffcf00;
+  color: #ffcf00;
+  transition: all 0.5s ease-in-out;
+}

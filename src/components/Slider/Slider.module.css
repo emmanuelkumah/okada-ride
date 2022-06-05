@@ -1,0 +1,52 @@
+.slide-banner {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgb(72, 0, 72, 0.5), rgb(192, 72, 72, 0.5)),
+    url("../../../src/pages/Home/Sections/image/sliderBanner2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.slide-content {
+  text-align: center;
+  position: relative;
+  top: 30%;
+  color: #fff;
+  line-height: 1.5;
+}
+.slide-content > h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.slide-content > p {
+  font-size: 1.5rem;
+}
+
+.slide-arrLeft,
+.slide-arrRight {
+  color: #fff;
+  font-size: 3rem;
+  position: absolute;
+}
+.slide-arrLeft {
+  top: 30%;
+  margin-left: 6rem;
+}
+.slide-arrRight {
+  top: 30%;
+  right: 20px;
+  margin-right: 6rem;
+}
+
+.slide-arrRight:hover,
+.slide-arrRight:active {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.4);
+  color: #ffcf00;
+}
+.slide-arrLeft:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.4);
+  color: #ffcf00;
+}
