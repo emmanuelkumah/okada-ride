@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./SingleMotor.module.css";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const SingleMotor = ({ img, name, id, specification, price, rating }) => {
   return (
@@ -33,7 +34,9 @@ const SingleMotor = ({ img, name, id, specification, price, rating }) => {
           <p>
             GHS {price} <span className={classes["motor-price"]}> per day</span>
           </p>
-          <button className={classes["motor-btnBk"]}>Book Ride</button>
+          <Link to={`/motors/${id}`}>
+            <button className={classes["motor-btnBk"]}>Book Ride</button>
+          </Link>
         </div>
       </li>
     </div>
