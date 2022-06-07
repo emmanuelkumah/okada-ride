@@ -7,7 +7,6 @@ import { BsCalendarDate } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 
 const SearchRide = ({ getFormDetails, pickupLoc, dropOffLoc, brands }) => {
-  console.log("all forms", pickupLoc, dropOffLoc, brands);
   const selectBrand = useRef(null);
   const pickupLocation = useRef(null);
   const dropoffLocation = useRef(null);

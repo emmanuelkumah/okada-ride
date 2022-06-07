@@ -16,13 +16,18 @@ function App() {
   const [pickupLoc, setPickupLoc] = useState(allPickUpLoc);
   const [dropOffLoc, setdropOffLoc] = useState(allDropoffLoc);
 
-  const filterItems = (motorBrand) => {
-    // console.log("the motor brand is", motorBrand);
-    const ans = data.filter((item) => {
-      return item.brand === motorBrand;
+  const filterItems = (motorBrand, pickupLoc, dropoffLoc) => {
+    const newItems = data.filter((item) => {
+      return (
+        item.brand === motorBrand &&
+        (item.pickupLocation === pickupLoc ||
+          item.dropoffLocation === dropoffLoc)
+      );
     });
 
-    console.log("answer is", ans);
+    // console.log(newItems);
+    // update the motorData
+    setMotorData(newItems);
   };
 
   const getMotorDetails = (id) => {
@@ -30,9 +35,12 @@ function App() {
   };
 
   const getFormDetails = (srchFields) => {
-    console.log("brand", srchFields.brand);
-    // console.log("selected brand", formData.brand);
-    filterItems(srchFields.brand);
+    const { brand, pickUp, dropOff, pickupDate, dropoffDate } = srchFields;
+    console.log(`day to pickup ${pickupDate}, day to dropoff ${dropoffDate}`);
+    //convert the date into numbers
+    // calculae the number of days
+    // use it to calculate price to charge
+    filterItems(brand, pickUp, dropOff);
   };
 
   return (

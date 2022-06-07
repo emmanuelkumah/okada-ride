@@ -56,6 +56,14 @@ const MotorDetails = ({ getMotorDetails }) => {
                   Brakes: <span>{motorDetails.specification.brakes}</span>
                 </p>
               </div>
+              <div>
+                <p>
+                  Pick up Location: <span>{motorDetails.pickupLocation}</span>
+                </p>
+                <p>
+                  Drop off location: <span>{motorDetails.dropoffLocation}</span>
+                </p>
+              </div>
               <button className={classes["detls-btn"]}>Book now</button>
             </div>
           </article>
