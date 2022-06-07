@@ -89,7 +89,7 @@ img:active {
 }
 
 .motor-btnBk {
-  width: 40%;
+  /* width: 40%; */
   border: none;
   background-color: #293462;
   font-family: "Montserrat", sans-serif;

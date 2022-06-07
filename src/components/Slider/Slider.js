@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import slides from "./slideData";
 import classes from "./Slider.module.css";
 import { BsChevronDoubleRight, BsChevronDoubleLeft } from "react-icons/bs";
-import SearchRide from "../SeachRide/SearchRide";
+import SearchRide from "../SearchRideForm/SearchRide";
 
-const Slider = () => {
+const Slider = ({ getFormDetails }) => {
   const [index, setIndex] = useState(0);
   const { heading, text } = slides[index];
 
@@ -47,7 +47,7 @@ const Slider = () => {
           <BsChevronDoubleRight />
         </div>
       </article>
-      <SearchRide />
+      <SearchRide getFormDetails={getFormDetails} />
     </div>
   );
 };

@@ -1,21 +1,51 @@
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./SearchRide.module.css";
 import { formData } from "./data";
 import { FaMotorcycle } from "react-icons/fa";
 import { BsCalendarDate } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 
-const SearchRide = () => {
+const SearchRide = ({ getFormDetails }) => {
+  const selectBrand = useRef(null);
+  const pickupLoc = useRef(null);
+  const dropoffLoc = useRef(null);
+  const pickupDate = useRef(null);
+  const dropoffDate = useRef(null);
+
+  let searchParams = {
+    brand: "",
+    pickUp: "",
+    dropOff: "",
+    pickupDate: "",
+    dropoffDate: "",
+  };
+  const handleFormInput = () => {
+    searchParams.brand = selectBrand.current.value;
+    searchParams.pickUp = pickupLoc.current.value;
+    searchParams.dropOff = dropoffLoc.current.value;
+    searchParams.pickupDate = pickupDate.current.value;
+    searchParams.dropoffDate = dropoffDate.current.value;
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    getFormDetails(searchParams);
+  };
+
   return (
     <div className={classes["form--container"]}>
-      <form className={classes["form--fields"]}>
+      <form className={classes["form--fields"]} onSubmit={handleFormSubmit}>
         <div>
           <p className={classes["form--label"]}>
             <FaMotorcycle className={classes["form--icon"]} />
             Select Motor Bike
           </p>
 
-          <select className={classes["form--select"]}>
+          <select
+            className={classes["form--select"]}
+            ref={selectBrand}
+            onChange={handleFormInput}
+          >
             {formData.map((option) => (
               <option key={option.id} value={option.value}>
                 {option.label}
@@ -28,7 +58,11 @@ const SearchRide = () => {
             <HiLocationMarker className={classes["form--icon"]} />
             Pick Up Location
           </p>
-          <select className={classes["form--select"]}>
+          <select
+            className={classes["form--select"]}
+            ref={pickupLoc}
+            onChange={handleFormInput}
+          >
             {formData.map((pickUpOpt) => (
               <option key={pickUpOpt.id} value={pickUpOpt.pickUp}>
                 {pickUpOpt.pickUp}
@@ -49,6 +83,8 @@ const SearchRide = () => {
             max="2022-12-31"
             name="pickup-date"
             className={classes["form--input"]}
+            ref={pickupDate}
+            onChange={handleFormInput}
           />
         </div>
 
@@ -58,7 +94,11 @@ const SearchRide = () => {
             Drop Off Location
           </p>
 
-          <select className={classes["form--select"]}>
+          <select
+            className={classes["form--select"]}
+            ref={dropoffLoc}
+            onChange={handleFormInput}
+          >
             {formData.map((pickUpOpt) => (
               <option key={pickUpOpt.id} value={pickUpOpt.pickUp}>
                 {pickUpOpt.pickUp}
@@ -79,6 +119,8 @@ const SearchRide = () => {
             max="2022-12-31"
             name="pickup-date"
             className={classes["form--input"]}
+            ref={dropoffDate}
+            onChange={handleFormInput}
           />
         </div>
         <div className={classes["btn--search"]}>

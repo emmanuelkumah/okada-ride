@@ -1,0 +1,73 @@
+.details--container {
+  display: flex;
+  padding: 2.5rem 4rem;
+  background-color: #f5f5f5;
+}
+.detls-col {
+  flex: 50%;
+}
+.detls-col > article {
+  padding: 2rem;
+}
+.detls-heading {
+  color: #293462;
+}
+.detls--pBrand {
+  color: #293462;
+}
+.detls--pBrand > p {
+  background-color: #f6b100;
+  padding: 0.5rem;
+  color: #000;
+  font-weight: 100;
+}
+.detls--perDay {
+  font-weight: 100;
+  color: #f6b100;
+  margin-left: 1rem;
+}
+.detls-img {
+  width: 50vw;
+}
+.detls-overview {
+  font-size: 1.2rem;
+  padding-top: 1.9rem;
+  /* padding-right: 3.9rem; */
+  line-height: 1.5;
+}
+.detls--pBrand {
+  display: flex;
+  padding-top: 1.6rem;
+  padding-right: 4rem;
+  justify-content: space-between;
+}
+.detls--specs {
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+.detls--specs > p {
+  color: #293462;
+  font-weight: 900;
+}
+.detls--specs span {
+  font-weight: 100;
+  padding-left: 0.5rem;
+}
+.specs-container {
+  margin-top: 2rem;
+}
+.specs-container > h2 {
+  padding-bottom: 2rem;
+  color: #f6b100;
+}
+.detls-btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #f6b100;
+  padding: 1rem;
+  font-size: 1.3rem;
+  border-radius: 10px;
+}
