@@ -6,25 +6,35 @@ import HomePage from "./pages/HomePage";
 import MotorListing from "./components/MotorListing/MotorListing";
 import MotorDetails from "./components/MotorDetails/MotorDetails";
 
-function App() {
-  //pass the motordata from the parent component to the chuld component
-  const [motorData, setMotorData] = useState(data);
+const allPickUpLoc = [...new Set(data.map((item) => item.pickupLocation))];
+const allDropoffLoc = [...new Set(data.map((item) => item.dropoffLocation))];
+const allBrands = [...new Set(data.map((item) => item.brand))];
 
-  let formData;
-  // const { brand } = formData;
+function App() {
+  const [motorData, setMotorData] = useState(data);
+  const [brands, setBrands] = useState(allBrands);
+  const [pickupLoc, setPickupLoc] = useState(allPickUpLoc);
+  const [dropOffLoc, setdropOffLoc] = useState(allDropoffLoc);
+
+  const filterItems = (motorBrand) => {
+    // console.log("the motor brand is", motorBrand);
+    const ans = data.filter((item) => {
+      return item.brand === motorBrand;
+    });
+
+    console.log("answer is", ans);
+  };
+
   const getMotorDetails = (id) => {
     return motorData.find((motor) => motor.id === id);
   };
 
-  const getFormDetails = (result) => {
-    console.log("form details", result);
-    formData = result;
-    console.log("selected brand", formData.brand);
+  const getFormDetails = (srchFields) => {
+    console.log("brand", srchFields.brand);
+    // console.log("selected brand", formData.brand);
+    filterItems(srchFields.brand);
   };
 
-  // //filter listing
-  //  select the brand from the submit details and use that to filter the motors
-  //update the motor data to display the new listing
   return (
     <>
       <Routes>
@@ -35,6 +45,9 @@ function App() {
             <MotorListing
               motorData={motorData}
               getFormDetails={getFormDetails}
+              dropOffLoc={dropOffLoc}
+              pickupLoc={pickupLoc}
+              brands={brands}
             />
           }
         />

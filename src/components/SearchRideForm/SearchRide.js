@@ -1,18 +1,20 @@
 import React, { useRef } from "react";
 import classes from "./SearchRide.module.css";
-import { formData } from "./data";
+// import { formData } from "./data";
+// import data from "../../data";
 import { FaMotorcycle } from "react-icons/fa";
 import { BsCalendarDate } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 
-const SearchRide = ({ getFormDetails }) => {
+const SearchRide = ({ getFormDetails, pickupLoc, dropOffLoc, brands }) => {
+  console.log("all forms", pickupLoc, dropOffLoc, brands);
   const selectBrand = useRef(null);
-  const pickupLoc = useRef(null);
-  const dropoffLoc = useRef(null);
+  const pickupLocation = useRef(null);
+  const dropoffLocation = useRef(null);
   const pickupDate = useRef(null);
   const dropoffDate = useRef(null);
 
-  let searchParams = {
+  let searchFields = {
     brand: "",
     pickUp: "",
     dropOff: "",
@@ -20,16 +22,16 @@ const SearchRide = ({ getFormDetails }) => {
     dropoffDate: "",
   };
   const handleFormInput = () => {
-    searchParams.brand = selectBrand.current.value;
-    searchParams.pickUp = pickupLoc.current.value;
-    searchParams.dropOff = dropoffLoc.current.value;
-    searchParams.pickupDate = pickupDate.current.value;
-    searchParams.dropoffDate = dropoffDate.current.value;
+    searchFields.brand = selectBrand.current.value;
+    searchFields.pickUp = pickupLocation.current.value;
+    searchFields.dropOff = dropoffLocation.current.value;
+    searchFields.pickupDate = pickupDate.current.value;
+    searchFields.dropoffDate = dropoffDate.current.value;
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    getFormDetails(searchParams);
+    getFormDetails(searchFields);
   };
 
   return (
@@ -46,9 +48,9 @@ const SearchRide = ({ getFormDetails }) => {
             ref={selectBrand}
             onChange={handleFormInput}
           >
-            {formData.map((option) => (
-              <option key={option.id} value={option.value}>
-                {option.label}
+            {brands.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
               </option>
             ))}
           </select>
@@ -60,12 +62,12 @@ const SearchRide = ({ getFormDetails }) => {
           </p>
           <select
             className={classes["form--select"]}
-            ref={pickupLoc}
+            ref={pickupLocation}
             onChange={handleFormInput}
           >
-            {formData.map((pickUpOpt) => (
-              <option key={pickUpOpt.id} value={pickUpOpt.pickUp}>
-                {pickUpOpt.pickUp}
+            {pickupLoc.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
               </option>
             ))}
           </select>
@@ -96,12 +98,12 @@ const SearchRide = ({ getFormDetails }) => {
 
           <select
             className={classes["form--select"]}
-            ref={dropoffLoc}
+            ref={dropoffLocation}
             onChange={handleFormInput}
           >
-            {formData.map((pickUpOpt) => (
-              <option key={pickUpOpt.id} value={pickUpOpt.pickUp}>
-                {pickUpOpt.pickUp}
+            {dropOffLoc.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
               </option>
             ))}
           </select>

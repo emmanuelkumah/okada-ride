@@ -6,7 +6,13 @@ import NavBar from "../../pages/Home/Sections/NavBar";
 import Footer from "../../pages/Home/Sections/Footer/Footer";
 import Slider from "../Slider/Slider";
 
-const MotorListing = ({ motorData, getFormDetails }) => {
+const MotorListing = ({
+  motorData,
+  getFormDetails,
+  dropOffLoc,
+  pickupLoc,
+  brands,
+}) => {
   const motorList = motorData.map((motor) => (
     <SingleMotor {...motor} key={motor.id} />
   ));
@@ -14,7 +20,12 @@ const MotorListing = ({ motorData, getFormDetails }) => {
   return (
     <>
       <NavBar />
-      <Slider getFormDetails={getFormDetails} />
+      <Slider
+        getFormDetails={getFormDetails}
+        dropOffLoc={dropOffLoc}
+        pickupLoc={pickupLoc}
+        brands={brands}
+      />
       <div className={classes["motor-container"]}>
         <div className={classes["motor--sec"]}>
           <aside className={classes["motor-sideBar"]}>

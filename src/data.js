@@ -14,6 +14,8 @@ const data = [
       gears: "6 Speed",
     },
     brand: "Yamaha",
+    pickupLocation: "Accra Central",
+    dropoffLocation: "Accra Central",
     overview:
       "The Yamaha mt 15 has several contemporary feature additions including a round and off-set instrument console with the digital odometer readout in place along with a radiator that has liquid cooling technologies too. There is fuel injection along with the futuristic catalytic converter too.",
   },
@@ -22,6 +24,8 @@ const data = [
     name: "Jubliant Y-012",
     price: 44,
     rating: 3.4,
+    pickupLocation: "Lapaz",
+    dropoffLocation: "Accra Central",
     img: "https://images.carandbike.com/bike-images/colors/hero/pleasure-plus-110/hero-pleasure-plus-110-jubilant-yellow.webp?v=1640325519",
     specification: {
       engineCapacity: "292.0 CC",
@@ -50,6 +54,8 @@ const data = [
       gears: "6 Speed",
     },
     brand: "Kawasaki",
+    pickupLocation: "Tema",
+    dropoffLocation: "Accra Central",
     overview:
       "The 2017 Jawa Forty two Evo 300 SS is the pure-bred of the Evo range, and comes with new crankcase derived directly from the 250/300cc engine (and no longer from the 125cc one, as in the past).",
   },
@@ -58,6 +64,8 @@ const data = [
     name: "Bgauss YZF R1",
     price: 41,
     rating: 4.1,
+    pickupLocation: "East Legon",
+    dropoffLocation: "East Legon",
     img: "https://images.carandbike.com/bike-images/large/bgauss/d15/bgauss-d15.webp?v=1",
     specification: {
       engineCapacity: "67 CC",
@@ -74,9 +82,11 @@ const data = [
   {
     id: 5,
     name: "Panigale V4 SP2 ",
-    brand: "ducati",
+    brand: "Ducati",
     rating: 2.5,
     price: 39,
+    pickupLocation: "Lapaz",
+    dropoffLocation: "East Legon",
     img: "https://images.ctfassets.net/x7j9qwvpvr5s/1nCKIizDwNLjwFjSPoBBaD/6ed565659a7984c89f00ef4454a75e79/MY-22-Panigale-V4-SP2-Model-Blocks-630x390-v02.png",
     specification: {
       engineCapacity: "452.9 CC",
@@ -94,6 +104,8 @@ const data = [
     name: "Diavel 1260",
     price: 41,
     rating: 4.9,
+    pickupLocation: "Lapaz",
+    dropoffLocation: "Tema",
     img: "https://images.ctfassets.net/x7j9qwvpvr5s/1RvUevmAcjNVCMTA98vJVO/eee98a808ce8027797b0337e1c351eeb/MY-22-Diavel-1260-S-BYG-01-Model-Blocks-630x390-v02.png",
     brand: "Ducati",
     overview:
@@ -109,9 +121,11 @@ const data = [
   {
     id: 7,
     name: "Super Sport 950",
-    brand: "bmw",
+    brand: "BMW",
     price: 37,
     rating: 4.5,
+    pickupLocation: "Tema",
+    dropoffLocation: "Lapaz",
     img: "https://images.ctfassets.net/x7j9qwvpvr5s/2CFTgGi3ShHXSmBVHr5wHR/820cf3e96041dfb9967fd9978a47f9b3/SuperSport-S-950-MY21-White-01-Book-testride_630x390_mod.png",
     overview:
       "The side view of the SuperSport 950 is marked by air vents reminiscent of the double extractor of the Panigale V4 models. The lower fairing now extends to the side silencer, hiding the mechanical components and visually recalling the track bikes.",
@@ -127,9 +141,11 @@ const data = [
   {
     id: 8,
     name: "X Diavel Nera",
-    brand: "Ducati",
+    brand: "Yamaha",
     price: 29,
     rating: 4.6,
+    pickupLocation: "Tema",
+    dropoffLocation: "Tema",
     img: "https://images.ctfassets.net/x7j9qwvpvr5s/6zHZhPjMUdm0W86FGUWeuP/b3d1c59dadec04599fb7751051432c8a/MY-22-XDVL-Nera-Model-Blocks-630x390.png",
     overview:
       "XDiavel Nera: made in Italy design and craftsmanship combine with technology and innovation in a motorcycle made by Ducati in partnership with Poltrona Frau's Interiors.",
@@ -148,7 +164,9 @@ const data = [
     rating: 3.0,
     price: 29,
     img: "https://www.thesmokeydogs.com/wp-content/uploads/2020/07/Panigale-959-thesmokeydogs-1024x634.png",
-    brand: "bmw",
+    brand: "BMW",
+    pickupLocation: "East Legon",
+    dropoffLocation: "East Legon",
     overview:
       "Enjoy the breeze and the speed with Smokey Dong-x craftsmanship combine with technology and innovation in a motorcycle made by Ducati in partnership with Poltrona Frau's Interiors.",
     specification: {
@@ -167,6 +185,8 @@ const data = [
     brand: "Harley Davidson",
     rating: 4.3,
     price: 53,
+    pickupLocation: "Accra Central",
+    dropoffLocation: "Tema",
     overview:
       "XDiavel Nera: made in Italy design and craftsmanship combine with technology and innovation in a motorcycle made by Ducati in partnership with Poltrona Frau's Interiors.",
     specification: {
@@ -185,6 +205,8 @@ const data = [
     price: 39,
     img: "https://www.harley-davidson.com/content/dam/h-d/images/product-images/bikes/motorcycle/2022/2022-fat-bob-114/2022-fat-bob-114-f57/360/2022-fat-bob-114-f57-motorcycle-01.jpg",
     brand: "Harley Davidson",
+    pickupLocation: "East Legon",
+    dropoffLocation: "Lapaz",
     overview:
       "Fat Boy 19 XDiavel Nera is made in Italy design and craftsmanship combine with technology and innovation in a motorcycle made by Ducati in partnership with Poltrona Frau's Interiors.",
     specification: {
@@ -203,6 +225,8 @@ const data = [
     brand: "Kawasaki",
     price: 31,
     rating: 3.3,
+    pickupLocation: "Lapaz",
+    dropoffLocation: "Tema",
     overview:
       " The XL 100 gets the 99.7 cc engine that churns out 4.3 BHP and 6.5 Nm of maximum power and torque respectively. There is good fuel economy of 67 kilometres per hour offered by the TVS XL 100",
     specification: {
