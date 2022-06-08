@@ -1,0 +1,40 @@
+.checkout--row {
+  display: flex;
+  padding: 4rem 4rem;
+}
+.checkout--col {
+  flex: 50%;
+}
+.checkout--container {
+  position: relative;
+}
+form {
+  height: auto;
+  border: 1px solid red;
+}
+form label,
+form input {
+  float: left;
+  clear: both;
+}
+.form--caption {
+  padding-bottom: 2rem;
+}
+
+input {
+  width: 70%;
+  padding: 1rem;
+  outline: none;
+  margin-bottom: 1.5rem;
+}
+label {
+  margin-bottom: 1rem;
+}
+.submit--btn {
+  background-color: #ffcf00;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  padding: 1rem;
+  width: 70%;
+}

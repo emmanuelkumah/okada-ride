@@ -1,16 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import NavBar from "../../pages/Home/Sections/NavBar";
+import { Link, useParams } from "react-router-dom";
 import classes from "./MotorDetails.module.css";
 
 const MotorDetails = ({ getMotorDetails }) => {
   const params = useParams();
+  const { motorId } = params;
 
-  const motorDetails = getMotorDetails(parseInt(params.motorId));
+  const motorDetails = getMotorDetails(parseInt(motorId));
 
   return (
     <>
-      <NavBar />
       <div className={classes["details--container"]}>
         <div className={classes["detls-col"]}>
           <img
@@ -64,7 +63,9 @@ const MotorDetails = ({ getMotorDetails }) => {
                   Drop off location: <span>{motorDetails.dropoffLocation}</span>
                 </p>
               </div>
-              <button className={classes["detls-btn"]}>Book now</button>
+              <Link to="checkout">
+                <button className={classes["detls-btn"]}>Book now</button>
+              </Link>
             </div>
           </article>
         </div>
