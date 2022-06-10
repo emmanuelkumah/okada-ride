@@ -5,15 +5,12 @@
 .checkout--col {
   flex: 50%;
 }
-.checkout--container {
-  position: relative;
-}
-form {
+
+.form--details {
   height: auto;
-  border: 1px solid red;
 }
-form label,
-form input {
+.form--details label,
+.form--details input {
   float: left;
   clear: both;
 }
@@ -21,13 +18,13 @@ form input {
   padding-bottom: 2rem;
 }
 
-input {
+.name--input {
   width: 70%;
   padding: 1rem;
   outline: none;
   margin-bottom: 1.5rem;
 }
-label {
+.form--details label {
   margin-bottom: 1rem;
 }
 .submit--btn {

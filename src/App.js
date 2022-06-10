@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import data from "./data";
 import { Routes, Route } from "react-router-dom";
@@ -20,6 +20,25 @@ function App() {
   const [brands, setBrands] = useState(allBrands);
   const [pickupLoc, setPickupLoc] = useState(allPickUpLoc);
   const [dropOffLoc, setdropOffLoc] = useState(allDropoffLoc);
+  const [selectedMotor, setSelectedMotor] = useState({
+    name: "",
+    image: "",
+    pickupStation: "",
+    dropOffStation: "",
+    price: "",
+  });
+  console.log("selected details is", selectedMotor);
+  const [checkout, setCheckout] = useState({
+    name: "",
+    img: "",
+    pickupLocation: "",
+    dropoffLocation: "",
+    pickupDate: "",
+    dropoffDate: "",
+  });
+
+  console.log("selected motor", selectedMotor);
+  useEffect(() => {}, []);
 
   const filterItems = (motorBrand, pickupLoc, dropoffLoc) => {
     const newItems = data.filter((item) => {
@@ -30,21 +49,41 @@ function App() {
       );
     });
 
-    // console.log(newItems);
-    // update the motorData
     setMotorData(newItems);
   };
+  // const viewSelectedMotor = (motor) => {
+  //   console.log(motor);
+  //   //update the motor details
 
+  // };
   const getMotorDetails = (id) => {
-    return motorData.find((motor) => motor.id === id);
+    let selectedMotrDetls = motorData.find((motor) => motor.id === id);
+
+    return selectedMotrDetls;
+    //  viewSelectedMotor(selectedMotrDetls);
+    // setSelectedMotor((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     name: selectedMotrDetls.name,
+    //     image: selectedMotrDetls.img,
+    //     price: selectedMotrDetls.price,
+    //     pickupStation: selectedMotrDetls.pickupLocation,
+    //     dropOffStation: selectedMotrDetls.dropoffLocation,
+    //   };
+    // });
+  };
+
+  const getCheckoutDetails = (pickupdate, dropoffdate) => {
+    //update checkout details
+    setCheckout((prevState) => {
+      return { ...prevState, pickupDate: pickupdate, dropoffDate: dropoffdate };
+    });
   };
 
   const getFormDetails = (srchFields) => {
     const { brand, pickUp, dropOff, pickupDate, dropoffDate } = srchFields;
-    console.log(`day to pickup ${pickupDate}, day to dropoff ${dropoffDate}`);
-    //convert the date into numbers
-    // calculae the number of days
-    // use it to calculate price to charge
+
+    getCheckoutDetails(pickupDate, dropoffDate);
     filterItems(brand, pickUp, dropOff);
   };
 
@@ -68,9 +107,17 @@ function App() {
           />
           <Route
             path="/motors/:motorId"
-            element={<MotorDetails getMotorDetails={getMotorDetails} />}
+            element={
+              <MotorDetails
+                getMotorDetails={getMotorDetails}
+                setSelectedMotor={setSelectedMotor}
+              />
+            }
           />
-          <Route path="/motors/:motorId/checkout" element={<Checkout />} />
+          <Route
+            path="/motors/:motorId/checkout"
+            element={<Checkout selectedMotor={selectedMotor} />}
+          />
           <Route path="tools" element={<FuelCalc />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

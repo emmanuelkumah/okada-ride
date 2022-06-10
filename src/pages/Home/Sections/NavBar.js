@@ -35,19 +35,19 @@ const NavBar = () => {
           <nav>
             <ul>
               <li>
-                <NavLink activeClassName={classes.active} to="/">
+                <NavLink activeclassname={classes.active} to="/">
                   Home
                 </NavLink>
               </li>
               <li>About</li>
               <li>Services</li>
               <li>
-                <NavLink activeClassName={classes.active} to="/motors">
+                <NavLink activeclassname={classes.active} to="/motors">
                   Find Motors
                 </NavLink>
               </li>
               <li>
-                <NavLink activeClassName={classes.active} to="/tools">
+                <NavLink activeclassname={classes.active} to="/tools">
                   Fuel Calculator
                 </NavLink>
               </li>

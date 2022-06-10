@@ -27,7 +27,10 @@
   margin-left: 1rem;
 }
 .detls-img {
+  margin-top: 40px;
   width: 50vw;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 .detls-overview {
   font-size: 1.2rem;

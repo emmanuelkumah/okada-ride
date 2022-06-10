@@ -1,32 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import classes from "./MotorDetails.module.css";
 
-const MotorDetails = ({ getMotorDetails }) => {
+const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
   const params = useParams();
   const { motorId } = params;
+  // console.log("the details is here", selectedMotrDetls);
+
+  // const motorDetails = getMotorDetails(parseInt(motorId));
 
   const motorDetails = getMotorDetails(parseInt(motorId));
+
+  console.log("output", motorDetails);
+  const {
+    brand,
+    name,
+    price,
+    pickupLocation,
+    dropoffLocation,
+    img,
+    specification,
+  } = motorDetails;
+
+  //get the values
+  useEffect(() => {
+    setSelectedMotor((prevState) => {
+      return {
+        name: name,
+        image: img,
+        pickupStation: pickupLocation,
+        dropOffStation: dropoffLocation,
+        price: price,
+      };
+    });
+  }, []);
 
   return (
     <>
       <div className={classes["details--container"]}>
         <div className={classes["detls-col"]}>
-          <img
-            src={motorDetails.img}
-            alt={motorDetails.name}
-            className={classes["detls-img"]}
-          />
+          <img src={img} alt={name} className={classes["detls-img"]} />
         </div>
         <div className={classes["detls-col"]}>
           <article>
-            <h1 className={classes["detls-heading"]}>{motorDetails.name}</h1>
+            <h1 className={classes["detls-heading"]}>{name}</h1>
             <div className={classes["detls--pBrand"]}>
               <h2>
-                GHS {motorDetails.price.toFixed(2)}
+                GHS {price.toFixed(2)}
                 <span className={classes["detls--perDay"]}>per day</span>
               </h2>
-              <p>{motorDetails.brand}</p>
+              <p>{brand}</p>
             </div>
 
             <p className={classes["detls-overview"]}>{motorDetails.overview}</p>
@@ -35,32 +58,34 @@ const MotorDetails = ({ getMotorDetails }) => {
               <div className={classes["detls--specs"]}>
                 <p>
                   Engine:
-                  <span>{motorDetails.specification.engineCapacity}</span>
+                  <span>{specification.engineCapacity}</span>
                 </p>
                 <p>
-                  Fuel Tank:<span>{motorDetails.specification.fuelTank}</span>
+                  Fuel Tank:
+                  <span>{specification.fuelTank}</span>
                 </p>
                 <p>
-                  Mileage:<span>{motorDetails.specification.mileage}</span>
+                  Mileage:<span>{specification.mileage}</span>
                 </p>
               </div>
               <div className={classes["detls--specs"]}>
                 <p>
-                  Wheels:<span>{motorDetails.specification.wheelType}</span>
+                  Wheels:
+                  <span>{specification.wheelType}</span>
                 </p>
                 <p>
-                  Gears: <span>{motorDetails.specification.gears}</span>
+                  Gears: <span>{specification.gears}</span>
                 </p>
                 <p>
-                  Brakes: <span>{motorDetails.specification.brakes}</span>
+                  Brakes: <span>{specification.brakes}</span>
                 </p>
               </div>
               <div>
                 <p>
-                  Pick up Location: <span>{motorDetails.pickupLocation}</span>
+                  Pick up Location: <span>{pickupLocation}</span>
                 </p>
                 <p>
-                  Drop off location: <span>{motorDetails.dropoffLocation}</span>
+                  Drop off location: <span>{dropoffLocation}</span>
                 </p>
               </div>
               <Link to="checkout">
