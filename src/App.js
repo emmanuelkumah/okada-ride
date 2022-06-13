@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import data from "./data";
 import { Routes, Route } from "react-router-dom";
@@ -11,37 +11,26 @@ import FuelCalc from "./components/FuelCalc/FuelCalc";
 import Footer from "./pages/Home/Sections/Footer/Footer";
 import Error404 from "./pages/Error404";
 
-const allPickUpLoc = [...new Set(data.map((item) => item.pickupLocation))];
-const allDropoffLoc = [...new Set(data.map((item) => item.dropoffLocation))];
-const allBrands = [...new Set(data.map((item) => item.brand))];
-
 function App() {
+  const allPickUpLoc = [...new Set(data.map((item) => item.pickupLocation))];
+  const allDropoffLoc = [...new Set(data.map((item) => item.dropoffLocation))];
+  const allBrands = [...new Set(data.map((item) => item.brand))];
+
   const [motorData, setMotorData] = useState(data);
-  const [brands, setBrands] = useState(allBrands);
-  const [pickupLoc, setPickupLoc] = useState(allPickUpLoc);
-  const [dropOffLoc, setdropOffLoc] = useState(allDropoffLoc);
+  const [totalDays, setTotalDays] = useState(0);
   const [selectedMotor, setSelectedMotor] = useState({
     name: "",
     image: "",
     pickupStation: "",
     dropOffStation: "",
-    price: "",
-  });
-  console.log("selected details is", selectedMotor);
-  const [checkout, setCheckout] = useState({
-    name: "",
-    img: "",
-    pickupLocation: "",
-    dropoffLocation: "",
     pickupDate: "",
     dropoffDate: "",
+    price: "",
   });
 
-  console.log("selected motor", selectedMotor);
-  useEffect(() => {}, []);
-
-  const filterItems = (motorBrand, pickupLoc, dropoffLoc) => {
-    const newItems = data.filter((item) => {
+  //filter motors
+  const filterMotors = (motorBrand, pickupLoc, dropoffLoc) => {
+    const filteredMotors = data.filter((item) => {
       return (
         item.brand === motorBrand &&
         (item.pickupLocation === pickupLoc ||
@@ -49,42 +38,46 @@ function App() {
       );
     });
 
-    setMotorData(newItems);
+    setMotorData(filteredMotors);
   };
-  // const viewSelectedMotor = (motor) => {
-  //   console.log(motor);
-  //   //update the motor details
 
-  // };
   const getMotorDetails = (id) => {
     let selectedMotrDetls = motorData.find((motor) => motor.id === id);
 
     return selectedMotrDetls;
-    //  viewSelectedMotor(selectedMotrDetls);
-    // setSelectedMotor((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     name: selectedMotrDetls.name,
-    //     image: selectedMotrDetls.img,
-    //     price: selectedMotrDetls.price,
-    //     pickupStation: selectedMotrDetls.pickupLocation,
-    //     dropOffStation: selectedMotrDetls.dropoffLocation,
-    //   };
-    // });
   };
 
   const getCheckoutDetails = (pickupdate, dropoffdate) => {
     //update checkout details
-    setCheckout((prevState) => {
+    setSelectedMotor((prevState) => {
       return { ...prevState, pickupDate: pickupdate, dropoffDate: dropoffdate };
     });
   };
 
   const getFormDetails = (srchFields) => {
     const { brand, pickUp, dropOff, pickupDate, dropoffDate } = srchFields;
-
+    //pass selected date
     getCheckoutDetails(pickupDate, dropoffDate);
-    filterItems(brand, pickUp, dropOff);
+
+    //filter motors based on the selected fields
+    filterMotors(brand, pickUp, dropOff);
+  };
+
+  const getBookingCost = (checkoutDetails) => {
+    const { pickupDate, dropoffDate } = checkoutDetails;
+
+    const pickupDuration = pickupDate.split("-");
+    const dropoffDuration = dropoffDate.split("-");
+    const pickupMonth = pickupDuration[1];
+    const dropoffMonth = dropoffDuration[1];
+    const pickupDay = pickupDuration[2];
+    const dropoffDay = dropoffDuration[2];
+    let month = Math.abs(+pickupMonth - +dropoffMonth);
+    let day = Math.abs(+pickupDay - +dropoffDay);
+    const totalDays = month + day;
+
+    setTotalDays(totalDays);
+    // console.log(`pickupMonth: ${month},day: ${day}. total days: ${totalDays}}`);
   };
 
   return (
@@ -99,9 +92,9 @@ function App() {
               <MotorListing
                 motorData={motorData}
                 getFormDetails={getFormDetails}
-                dropOffLoc={dropOffLoc}
-                pickupLoc={pickupLoc}
-                brands={brands}
+                dropOffLoc={allDropoffLoc}
+                pickupLoc={allPickUpLoc}
+                brands={allBrands}
               />
             }
           />
@@ -116,7 +109,13 @@ function App() {
           />
           <Route
             path="/motors/:motorId/checkout"
-            element={<Checkout selectedMotor={selectedMotor} />}
+            element={
+              <Checkout
+                selectedMotor={selectedMotor}
+                getBookingCost={getBookingCost}
+                totalDays={totalDays}
+              />
+            }
           />
           <Route path="tools" element={<FuelCalc />} />
           <Route path="*" element={<Error404 />} />

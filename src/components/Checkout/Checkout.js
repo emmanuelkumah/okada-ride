@@ -2,7 +2,21 @@ import React from "react";
 import classes from "./Checkout.module.css";
 import CheckoutForm from "./CheckoutForm";
 
-const Checkout = ({ selectedMotor }) => {
+const Checkout = ({ selectedMotor, getBookingCost, totalDays }) => {
+  //calc cost of booking the selected motor
+  getBookingCost(selectedMotor);
+
+  const {
+    name,
+    image,
+    pickupStation,
+    dropOffStation,
+    pickupDate,
+    dropoffDate,
+    price,
+  } = selectedMotor;
+  const totalPrice = +price * totalDays;
+
   return (
     <div className={classes["checkout--row"]}>
       <div className={classes["checkout--col"]}>
@@ -12,11 +26,21 @@ const Checkout = ({ selectedMotor }) => {
       <div className={classes["checkout--col"]}>
         <h3>Motor Details</h3>
         <article>
-          <p>{selectedMotor.name}</p>
-          <img src={selectedMotor.image} alt="motor" />
-          <p>Pickup Station: {selectedMotor.pickupStation}</p>
-          <p>Dropoff Station: {selectedMotor.dropOffStation}</p>
-          <p>Price: {selectedMotor.price}</p>
+          <p>{name}</p>
+          <img src={image} alt="motor" />
+          <p>Pickup Station: {pickupStation}</p>
+          <p>Dropoff Station: {dropOffStation}</p>
+          <p>Total Cost : {`${totalPrice ? totalPrice : price} GHS`}</p>
+          <div>
+            <p>
+              Pickup Date:{" "}
+              {`${pickupDate ? pickupDate : "Available on request"}`}
+            </p>
+            <p>
+              Drop off Date:{" "}
+              {`${dropoffDate ? dropoffDate : "Available on request"}  `}
+            </p>
+          </div>
         </article>
       </div>
     </div>

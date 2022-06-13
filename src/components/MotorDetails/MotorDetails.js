@@ -11,7 +11,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
 
   const motorDetails = getMotorDetails(parseInt(motorId));
 
-  console.log("output", motorDetails);
+  // console.log("output", motorDetails);
   const {
     brand,
     name,
@@ -26,6 +26,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
   useEffect(() => {
     setSelectedMotor((prevState) => {
       return {
+        ...prevState,
         name: name,
         image: img,
         pickupStation: pickupLocation,
@@ -33,7 +34,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
         price: price,
       };
     });
-  }, []);
+  }, [pickupLocation, dropoffLocation]);
 
   return (
     <>
@@ -88,6 +89,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
                   Drop off location: <span>{dropoffLocation}</span>
                 </p>
               </div>
+              <div></div>
               <Link to="checkout">
                 <button className={classes["detls-btn"]}>Book now</button>
               </Link>
