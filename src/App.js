@@ -26,7 +26,7 @@ function App() {
     pickupDate: "",
     dropoffDate: "",
     price: "",
-    totalDays: 0,
+    totalDays: 1,
   });
 
   useEffect(() => {
@@ -34,10 +34,13 @@ function App() {
   }, [selectedMotor]);
 
   function fetchMotor() {
-    let fetchedData;
     if (selectedMotor.brand !== "") {
-      fetchedData = data.filter((motor) => {
-        return motor.brand === selectedMotor.brand;
+      const fetchedData = data.filter((motor) => {
+        return (
+          motor.brand === selectedMotor.brand &&
+          (motor.pickupLocation === selectedMotor.pickupStation ||
+            motor.dropoffLocation === selectedMotor.dropOffStation)
+        );
       });
       setMotorData(fetchedData);
     }
@@ -49,27 +52,9 @@ function App() {
     return selectedMotrDetls;
   };
 
-  const getBookingCost = (checkoutDetails) => {
-    const { pickupDate, dropoffDate } = checkoutDetails;
-
-    const pickupDuration = pickupDate.split("-");
-    const dropoffDuration = dropoffDate.split("-");
-    const pickupMonth = pickupDuration[1];
-    const dropoffMonth = dropoffDuration[1];
-    const pickupDay = pickupDuration[2];
-    const dropoffDay = dropoffDuration[2];
-    let month = Math.abs(+pickupMonth - +dropoffMonth);
-    let day = Math.abs(+pickupDay - +dropoffDay);
-    const totalDays = month + day;
-  };
-
-  const sendSubmittedData = (formData) => {
-    console.log(formData);
-  };
-
   //send data to backend
   const addBookingDetails = async (bookingDtls) => {
-    // console.log("value", bookingDtls);
+    //console.log("value", bookingDtls);
     const response = await fetch(
       "https://okadaride-c9652-default-rtdb.firebaseio.com/customerDetails.json",
       {
@@ -115,9 +100,8 @@ function App() {
             path="/motors/:motorId/checkout"
             element={
               <Checkout
+                setSelectedMotor={setSelectedMotor}
                 selectedMotor={selectedMotor}
-                getBookingCost={getBookingCost}
-                sendSubmittedData={sendSubmittedData}
                 addBookingDetails={addBookingDetails}
               />
             }
