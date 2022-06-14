@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import classes from "./Checkout.module.css";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ addBookingDetails }) => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
@@ -16,6 +16,14 @@ const CheckoutForm = () => {
     const phoneNum = phoneRef.current.value;
 
     console.log("form details", firstName, lastName, email, phoneNum);
+    const details = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNum: phoneNum,
+    };
+    //send details to backend
+    addBookingDetails(details);
     formRef.current.reset();
   };
 

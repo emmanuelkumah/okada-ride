@@ -80,6 +80,27 @@ function App() {
     // console.log(`pickupMonth: ${month},day: ${day}. total days: ${totalDays}}`);
   };
 
+  const sendSubmittedData = (formData) => {
+    console.log(formData);
+  };
+
+  //send data to backend
+  const addBookingDetails = async (bookingDtls) => {
+    // console.log("value", bookingDtls);
+    const response = await fetch(
+      "https://okadaride-c9652-default-rtdb.firebaseio.com/customerDetails.json",
+      {
+        method: "POST",
+        body: JSON.stringify(bookingDtls),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log("data from server", data);
+  };
+
   return (
     <>
       <NavBar />
@@ -114,6 +135,8 @@ function App() {
                 selectedMotor={selectedMotor}
                 getBookingCost={getBookingCost}
                 totalDays={totalDays}
+                sendSubmittedData={sendSubmittedData}
+                addBookingDetails={addBookingDetails}
               />
             }
           />
