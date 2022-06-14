@@ -4,7 +4,14 @@ import classes from "./Slider.module.css";
 import { BsChevronDoubleRight, BsChevronDoubleLeft } from "react-icons/bs";
 import SearchRide from "../SearchRideForm/SearchRide";
 
-const Slider = ({ getFormDetails, dropOffLoc, pickupLoc, brands }) => {
+const Slider = ({
+  getFormDetails,
+  dropOffLoc,
+  pickupLoc,
+  brands,
+  setSelectedMotor,
+  fetchMotor,
+}) => {
   const [index, setIndex] = useState(0);
   const { heading, text } = slides[index];
 
@@ -52,6 +59,7 @@ const Slider = ({ getFormDetails, dropOffLoc, pickupLoc, brands }) => {
         dropOffLoc={dropOffLoc}
         pickupLoc={pickupLoc}
         brands={brands}
+        setSelectedMotor={setSelectedMotor}
       />
     </div>
   );

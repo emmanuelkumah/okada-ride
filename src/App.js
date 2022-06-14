@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import data from "./data";
 import { Routes, Route } from "react-router-dom";
@@ -17,50 +17,36 @@ function App() {
   const allBrands = [...new Set(data.map((item) => item.brand))];
 
   const [motorData, setMotorData] = useState(data);
-  const [totalDays, setTotalDays] = useState(0);
   const [selectedMotor, setSelectedMotor] = useState({
     name: "",
+    brand: "",
     image: "",
     pickupStation: "",
     dropOffStation: "",
     pickupDate: "",
     dropoffDate: "",
     price: "",
+    totalDays: 0,
   });
 
-  //filter motors
-  const filterMotors = (motorBrand, pickupLoc, dropoffLoc) => {
-    const filteredMotors = data.filter((item) => {
-      return (
-        item.brand === motorBrand &&
-        (item.pickupLocation === pickupLoc ||
-          item.dropoffLocation === dropoffLoc)
-      );
-    });
+  useEffect(() => {
+    fetchMotor();
+  }, [selectedMotor]);
 
-    setMotorData(filteredMotors);
-  };
+  function fetchMotor() {
+    let fetchedData;
+    if (selectedMotor.brand !== "") {
+      fetchedData = data.filter((motor) => {
+        return motor.brand === selectedMotor.brand;
+      });
+      setMotorData(fetchedData);
+    }
+  }
 
   const getMotorDetails = (id) => {
     let selectedMotrDetls = motorData.find((motor) => motor.id === id);
 
     return selectedMotrDetls;
-  };
-
-  const getCheckoutDetails = (pickupdate, dropoffdate) => {
-    //update checkout details
-    setSelectedMotor((prevState) => {
-      return { ...prevState, pickupDate: pickupdate, dropoffDate: dropoffdate };
-    });
-  };
-
-  const getFormDetails = (srchFields) => {
-    const { brand, pickUp, dropOff, pickupDate, dropoffDate } = srchFields;
-    //pass selected date
-    getCheckoutDetails(pickupDate, dropoffDate);
-
-    //filter motors based on the selected fields
-    filterMotors(brand, pickUp, dropOff);
   };
 
   const getBookingCost = (checkoutDetails) => {
@@ -75,9 +61,6 @@ function App() {
     let month = Math.abs(+pickupMonth - +dropoffMonth);
     let day = Math.abs(+pickupDay - +dropoffDay);
     const totalDays = month + day;
-
-    setTotalDays(totalDays);
-    // console.log(`pickupMonth: ${month},day: ${day}. total days: ${totalDays}}`);
   };
 
   const sendSubmittedData = (formData) => {
@@ -112,10 +95,10 @@ function App() {
             element={
               <MotorListing
                 motorData={motorData}
-                getFormDetails={getFormDetails}
                 dropOffLoc={allDropoffLoc}
                 pickupLoc={allPickUpLoc}
                 brands={allBrands}
+                setSelectedMotor={setSelectedMotor}
               />
             }
           />
@@ -134,7 +117,6 @@ function App() {
               <Checkout
                 selectedMotor={selectedMotor}
                 getBookingCost={getBookingCost}
-                totalDays={totalDays}
                 sendSubmittedData={sendSubmittedData}
                 addBookingDetails={addBookingDetails}
               />

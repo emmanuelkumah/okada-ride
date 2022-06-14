@@ -2,13 +2,7 @@ import React from "react";
 import classes from "./Checkout.module.css";
 import CheckoutForm from "./CheckoutForm";
 
-const Checkout = ({
-  selectedMotor,
-  getBookingCost,
-  totalDays,
-
-  addBookingDetails,
-}) => {
+const Checkout = ({ selectedMotor, getBookingCost, addBookingDetails }) => {
   //calc cost of booking the selected motor
   getBookingCost(selectedMotor);
 
@@ -21,16 +15,16 @@ const Checkout = ({
     dropoffDate,
     price,
   } = selectedMotor;
-  const totalPrice = +price * totalDays;
+  //const totalPrice = +price * totalDays;
   //pass booking details
-  const bookingDetls = {
-    name: name,
-    pickupStation: pickupStation,
-    dropOffStation: dropOffStation,
-    pickupDate: pickupDate,
-    dropoffDate: dropoffDate,
-    totalPrice: totalPrice,
-  };
+  // const bookingDetls = {
+  //   name: name,
+  //   pickupStation: pickupStation,
+  //   dropOffStation: dropOffStation,
+  //   pickupDate: pickupDate,
+  //   dropoffDate: dropoffDate,
+  //   totalPrice: totalPrice,
+  // };
   //addBookingDetails(bookingDetls);
 
   return (
@@ -46,7 +40,7 @@ const Checkout = ({
           <img src={image} alt="motor" />
           <p>Pickup Station: {pickupStation}</p>
           <p>Dropoff Station: {dropOffStation}</p>
-          <p>Total Cost : {`${totalPrice ? totalPrice : price} GHS`}</p>
+          <p>Total Cost : {`${price} GHS`}</p>
           <div>
             <p>
               Pickup Date:{" "}

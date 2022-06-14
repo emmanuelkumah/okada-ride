@@ -11,6 +11,7 @@ const MotorListing = ({
   dropOffLoc,
   pickupLoc,
   brands,
+  setSelectedMotor,
 }) => {
   const motorList = motorData.map((motor) => (
     <SingleMotor {...motor} key={motor.id} />
@@ -23,6 +24,7 @@ const MotorListing = ({
         dropOffLoc={dropOffLoc}
         pickupLoc={pickupLoc}
         brands={brands}
+        setSelectedMotor={setSelectedMotor}
       />
       <div className={classes["motor-container"]}>
         <div className={classes["motor--sec"]}>

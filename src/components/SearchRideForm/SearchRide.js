@@ -6,7 +6,14 @@ import { FaMotorcycle } from "react-icons/fa";
 import { BsCalendarDate } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 
-const SearchRide = ({ getFormDetails, pickupLoc, dropOffLoc, brands }) => {
+const SearchRide = ({
+  getFormDetails,
+  pickupLoc,
+  dropOffLoc,
+  brands,
+  setSelectedMotor,
+  fetchMotor,
+}) => {
   const selectBrand = useRef(null);
   const pickupLocation = useRef(null);
   const dropoffLocation = useRef(null);
@@ -30,7 +37,19 @@ const SearchRide = ({ getFormDetails, pickupLoc, dropOffLoc, brands }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    getFormDetails(searchFields);
+    // getFormDetails(searchFields);
+
+    //update the data of the motor to search for
+    setSelectedMotor((prevState) => {
+      return {
+        ...prevState,
+        brand: searchFields.brand,
+        pickupDate: searchFields.pickupDate,
+        dropoffDate: searchFields.dropoffDate,
+        dropOffStation: searchFields.dropOff,
+        pickupStation: searchFields.pickUp,
+      };
+    });
   };
 
   return (
