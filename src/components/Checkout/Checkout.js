@@ -30,7 +30,8 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
     price,
     totalDays,
   } = selectedMotor;
-
+  console.log(typeof price, price);
+  console.log(typeof totalDays, totalDays);
   const getRideCost = () => {
     const pickupDuration = selectedMotor.pickupDate.split("-");
     const dropoffDuration = selectedMotor.dropoffDate.split("-");
@@ -41,6 +42,7 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
     let month = Math.abs(+pickupMonth - +dropoffMonth);
     let day = Math.abs(+pickupDay - +dropoffDay);
     totals = month + day;
+    console.log("total days is", totals);
   };
   getRideCost();
 
@@ -61,13 +63,16 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
     };
     //send details to backend
     addBookingDetails(details);
+    //reset form
     formRef.current.reset();
   };
 
   return (
     <div className={classes["checkout--row"]}>
       <div className={classes["checkout--col"]}>
-        <h2 className={classes["form--caption"]}>Form Details</h2>
+        <h2 className={classes["form--heading"]}>
+          Please provide your information
+        </h2>
         <div className={classes["form--container"]}>
           <form
             className={classes["form--details"]}
@@ -137,24 +142,54 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
         </div>
       </div>
       <div className={classes["checkout--col"]}>
-        <h3>Motor Details</h3>
-        <article>
-          <p>{name}</p>
-          <img src={image} alt="motor" />
-          <p>Pickup Station: {pickupStation}</p>
-          <p>Dropoff Station: {dropOffStation}</p>
-          <p>Total Cost : {parseInt(price) * totalDays} </p>
-          <div>
-            <p>
-              Pickup Date:{" "}
-              {`${pickupDate ? pickupDate : "Available on request"}`}
-            </p>
-            <p>
-              Drop off Date:{" "}
-              {`${dropoffDate ? dropoffDate : "Available on request"}  `}
-            </p>
+        <section className={classes["reserve--container"]}>
+          <img
+            src={image}
+            alt="motor"
+            className={classes["reserve-motor__img"]}
+          />
+
+          <div className={classes["rm--content"]}>
+            <h2>{name}</h2>
+
+            <div>
+              <h3 className={classes["rm-bokngHeadngs"]}>Booking Details</h3>
+              <div className={classes["rm-destn"]}>
+                <p className={classes["rm-bokingSubHeadng"]}>
+                  Pickup: <span>{pickupStation}</span>
+                </p>
+                <p className={classes["rm-bokingSubHeadng"]}>
+                  Dropoff: <span>{dropOffStation}</span>
+                </p>
+              </div>
+              <div className={classes["rm-destn"]}>
+                <p className={classes["rm-bokingSubHeadng"]}>
+                  Pickup Date:{" "}
+                  <span>{`${
+                    pickupDate ? pickupDate : "Available on request"
+                  }`}</span>
+                </p>
+                <p className={classes["rm-bokingSubHeadng"]}>
+                  Drop off Date:
+                  <span>
+                    {" "}
+                    {`${dropoffDate ? dropoffDate : "Available on request"}  `}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <p className={classes["rm-bokingCost"]}>
+                Total Cost :{" "}
+                {`${
+                  pickupDate === ""
+                    ? price.toFixed(2)
+                    : (price * totalDays).toFixed(2)
+                } GHS`}
+              </p>
+            </div>
           </div>
-        </article>
+        </section>
       </div>
     </div>
   );

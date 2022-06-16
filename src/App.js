@@ -54,7 +54,6 @@ function App() {
 
   //send data to backend
   const addBookingDetails = async (bookingDtls) => {
-    //console.log("value", bookingDtls);
     const response = await fetch(
       "https://okadaride-c9652-default-rtdb.firebaseio.com/customerDetails.json",
       {

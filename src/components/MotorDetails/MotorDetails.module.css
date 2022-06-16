@@ -1,71 +1,85 @@
-.details--container {
+.motor-details--container {
   display: flex;
   padding: 2.5rem 4rem;
   background-color: #f5f5f5;
 }
-.detls-col {
+.motor-col {
   flex: 50%;
 }
-.detls-col > article {
+.motor-col > article {
   padding: 2rem;
 }
-.detls-heading {
+.motor-name {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.motor-heading,
+.motor-brand,
+.motorCost,
+.motor-overview h2,
+.motorSpecs-container h2 {
   color: #293462;
 }
-.detls--pBrand {
-  color: #293462;
-}
-.detls--pBrand > p {
+.motor-brand {
   background-color: #f6b100;
   padding: 0.5rem;
-  color: #000;
-  font-weight: 100;
+  font-weight: 500;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
-.detls--perDay {
+.motor-destn {
+  display: flex;
+  justify-content: space-between;
+}
+.motor-destn > p {
+  color: #293462;
+  font-weight: 900;
+}
+
+.motorCost--perDay {
   font-weight: 100;
   color: #f6b100;
   margin-left: 1rem;
 }
-.detls-img {
+.motor-img {
   margin-top: 40px;
   width: 50vw;
   border-radius: 10px;
+  border: 1px dashed #293462;
+
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.detls-overview {
-  font-size: 1.2rem;
-  padding-top: 1.9rem;
-  /* padding-right: 3.9rem; */
+.motor-overview,
+.motorSpecs-container,
+.motor-name {
+  font-size: 1rem;
   line-height: 1.5;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px dashed #293462;
 }
-.detls--pBrand {
-  display: flex;
-  padding-top: 1.6rem;
-  padding-right: 4rem;
-  justify-content: space-between;
+
+.motorSpecs-container {
+  margin-top: 2rem;
 }
-.detls--specs {
+.motor--specs {
   display: flex;
   flex: wrap;
   justify-content: space-between;
   padding-bottom: 1rem;
 }
-.detls--specs > p {
+.motor--specs > p {
   color: #293462;
   font-weight: 900;
 }
-.detls--specs span {
+.motor--specs span {
   font-weight: 100;
   padding-left: 0.5rem;
 }
-.specs-container {
-  margin-top: 2rem;
-}
-.specs-container > h2 {
-  padding-bottom: 2rem;
-  color: #f6b100;
-}
-.detls-btn {
+
+.motor-btn {
   width: 100%;
   border: none;
   outline: none;
@@ -73,4 +87,13 @@
   padding: 1rem;
   font-size: 1.3rem;
   border-radius: 10px;
+  margin-top: 1rem;
+  color: #293462;
+}
+
+.motor-btn:hover,
+.motor-btn:active {
+  background: #293462;
+  transition: all 0.5s ease-in;
+  color: #fff;
 }

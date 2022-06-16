@@ -116,6 +116,7 @@ const data = [
       wheelType: "Alloy Wheels",
       brakes: "Dual Semi-floating Petals Discs",
       gears: "6 Speed",
+      fuelTank: "34.4 L",
     },
   },
   {

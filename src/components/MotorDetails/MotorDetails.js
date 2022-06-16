@@ -38,25 +38,30 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
 
   return (
     <>
-      <div className={classes["details--container"]}>
-        <div className={classes["detls-col"]}>
-          <img src={img} alt={name} className={classes["detls-img"]} />
-        </div>
-        <div className={classes["detls-col"]}>
-          <article>
-            <h1 className={classes["detls-heading"]}>{name}</h1>
-            <div className={classes["detls--pBrand"]}>
-              <h2>
-                GHS {price.toFixed(2)}
-                <span className={classes["detls--perDay"]}>per day</span>
-              </h2>
-              <p>{brand}</p>
-            </div>
+      <div className={classes["motor-details--container"]}>
+        <div className={classes["motor-col"]}>
+          <section>
+            <img src={img} alt={name} className={classes["motor-img"]} />
 
-            <p className={classes["detls-overview"]}>{motorDetails.overview}</p>
-            <div className={classes["specs-container"]}>
+            <div className={classes["motor-name"]}>
+              <h1 className={classes["motor-heading"]}>{name}</h1>
+              <p className={classes["motor-brand"]}>{brand}</p>
+              <h2 className={classes["motorCost"]}>
+                GHS {price.toFixed(2)}
+                <span className={classes["motorCost--perDay"]}>per day</span>
+              </h2>
+            </div>
+          </section>
+        </div>
+        <div className={classes["motor-col"]}>
+          <article>
+            <section className={classes["motor-overview"]}>
+              <h2>Overview</h2>
+              {motorDetails.overview}
+            </section>
+            <section className={classes["motorSpecs-container"]}>
               <h2>Specification</h2>
-              <div className={classes["detls--specs"]}>
+              <div className={classes["motor--specs"]}>
                 <p>
                   Engine:
                   <span>{specification.engineCapacity}</span>
@@ -69,7 +74,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
                   Mileage:<span>{specification.mileage}</span>
                 </p>
               </div>
-              <div className={classes["detls--specs"]}>
+              <div className={classes["motor--specs"]}>
                 <p>
                   Wheels:
                   <span>{specification.wheelType}</span>
@@ -81,19 +86,21 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
                   Brakes: <span>{specification.brakes}</span>
                 </p>
               </div>
-              <div>
-                <p>
-                  Pick up Location: <span>{pickupLocation}</span>
-                </p>
-                <p>
-                  Drop off location: <span>{dropoffLocation}</span>
-                </p>
-              </div>
-              <div></div>
+              <section>
+                <h2>Destination</h2>
+                <div className={classes["motor-destn"]}>
+                  <p>
+                    Pick Bike at: <span>{pickupLocation}</span>
+                  </p>
+                  <p>
+                    Drop off at: <span>{dropoffLocation}</span>
+                  </p>
+                </div>
+              </section>
               <Link to="checkout">
-                <button className={classes["detls-btn"]}>Book now</button>
+                <button className={classes["motor-btn"]}>Reserve Motor</button>
               </Link>
-            </div>
+            </section>
           </article>
         </div>
       </div>

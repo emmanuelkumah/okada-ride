@@ -1,5 +1,6 @@
 .checkout--row {
   display: flex;
+  flex-direction: row-reverse;
   padding: 4rem 4rem;
 }
 .checkout--col {
@@ -8,6 +9,11 @@
 .form--container {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
   padding: 2rem;
+}
+.form--heading {
+  margin-bottom: 2rem;
+  color: #15172b;
+  text-transform: capitalize;
 }
 .input-container {
   height: 50px;
@@ -75,11 +81,11 @@
 }
 
 .input:not(:placeholder-shown) ~ .placeholder {
-  color: #808097;
+  color: #fff;
 }
 
 .input:focus ~ .placeholder {
-  color: #dc2f55;
+  color: #f6b100;
 }
 
 .submit-btn button {
@@ -99,4 +105,49 @@
   background: transparent;
   border: 1px solid #15172b;
   cursor: pointer;
+}
+.reserve--container {
+  /* background: #e2ebf0; */
+  padding: 2rem 4rem;
+}
+.reserve-motor__img {
+  width: 90%;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  border: 2px dashed#e2ebf0;
+}
+.rm-bokngHeadngs {
+  background: #e2ebf0;
+  border-left: 2px solid #15172b;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.rm-bokingSubHeadng span {
+  color: #15172b;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.rm-bokingCost {
+  background: #f6b100;
+  border-left: 2px solid #15172b;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  color: #15172b;
+}
+.rm-destn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rm--content > h2 {
+  margin-bottom: 2rem;
+}
+.rm--name {
+  background: #cfd9df;
+  padding: 1rem;
+  border-left: 2px solid #15172b;
 }
