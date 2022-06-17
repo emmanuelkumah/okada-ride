@@ -1,0 +1,50 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 25%;
+  width: 50vw;
+  z-index: 100;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 10px;
+}
+.m--heading,
+.m--subHeading {
+  text-align: center;
+}
+.m--heading {
+  font-size: 1.3rem;
+  color: #293462;
+  padding: 2rem;
+}
+.m--subHeading {
+  margin-bottom: 2rem;
+}
+.m--subHeading p {
+  font-size: 1.2rem;
+}
+.m--btn button {
+  width: 50%;
+  border: none;
+  background: #293462;
+  margin-top: 1rem;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.m--btn button:hover {
+  transition: all 0.5s ease-in;
+  background: #ffcf00;
+  cursor: pointer;
+  color: #15172b;
+}

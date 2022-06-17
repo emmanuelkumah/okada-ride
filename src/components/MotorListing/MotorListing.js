@@ -31,6 +31,11 @@ const MotorListing = ({
           <aside className={classes["motor-sideBar"]}>
             <SideBar />
           </aside>
+          {motorData.length === 0 && (
+            <h2 className={classes["motor--unavailable"]}>
+              No Available Motors
+            </h2>
+          )}
           <ul className={classes["motor-card"]}>{motorList}</ul>
         </div>
       </div>

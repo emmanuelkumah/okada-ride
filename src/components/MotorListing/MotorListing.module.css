@@ -28,3 +28,8 @@ ul {
 
   height: 200px;
 }
+.motor--unavailable {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #15172b;
+}

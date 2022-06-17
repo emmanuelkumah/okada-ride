@@ -28,6 +28,7 @@ function App() {
     price: "",
     totalDays: 1,
   });
+  const [isFormSumbit, setIsFormSubmit] = useState(false);
 
   useEffect(() => {
     fetchMotor();
@@ -101,6 +102,8 @@ function App() {
               <Checkout
                 setSelectedMotor={setSelectedMotor}
                 selectedMotor={selectedMotor}
+                setIsFormSubmit={setIsFormSubmit}
+                isFormSubmit={isFormSumbit}
                 addBookingDetails={addBookingDetails}
               />
             }

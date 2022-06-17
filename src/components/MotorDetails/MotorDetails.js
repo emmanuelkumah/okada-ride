@@ -87,7 +87,7 @@ const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
                 </p>
               </div>
               <section>
-                <h2>Destination</h2>
+                <h2>Motor Location</h2>
                 <div className={classes["motor-destn"]}>
                   <p>
                     Pick Bike at: <span>{pickupLocation}</span>

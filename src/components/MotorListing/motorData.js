@@ -33,7 +33,7 @@ const data = [
     },
     brand: "Harley Davidson",
     overview:
-      "Our standard Africa Twin is a great choice for serious off-road enthusiasts, with either a six-speed manual transmission or our optional DCT. For long-distance adventure touring, check out our two Africa Twin Adventure Sports ES models",
+      "Our standard Africa Jubilant is a great choice for serious off-road enthusiasts, with either a six-speed manual transmission or our optional DCT. For long-distance adventure touring, check out our two Africa Twin Adventure Sports ES models",
   },
   {
     id: 3,
@@ -55,7 +55,7 @@ const data = [
   },
   {
     id: 4,
-    name: "Bgauss YZF R1",
+    name: "Bagauss YZF R1",
     price: 41,
     rating: 4.1,
     img: "https://images.carandbike.com/bike-images/large/bgauss/d15/bgauss-d15.webp?v=1",
@@ -74,7 +74,7 @@ const data = [
   {
     id: 5,
     name: "Panigale V4 SP2 ",
-    brand: "ducati",
+    brand: "Ducati",
     rating: 2.5,
     price: 39,
     img: "https://images.ctfassets.net/x7j9qwvpvr5s/1nCKIizDwNLjwFjSPoBBaD/6ed565659a7984c89f00ef4454a75e79/MY-22-Panigale-V4-SP2-Model-Blocks-630x390-v02.png",

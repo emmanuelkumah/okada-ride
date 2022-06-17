@@ -1,7 +1,14 @@
 import React, { useRef, useEffect } from "react";
+import SuccessModal from "../SuccessModal/SuccessModal";
 import classes from "./Checkout.module.css";
 
-const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
+const Checkout = ({
+  selectedMotor,
+  setSelectedMotor,
+  isFormSubmit,
+  setIsFormSubmit,
+  addBookingDetails,
+}) => {
   let totals;
 
   useEffect(() => {
@@ -30,8 +37,7 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
     price,
     totalDays,
   } = selectedMotor;
-  console.log(typeof price, price);
-  console.log(typeof totalDays, totalDays);
+
   const getRideCost = () => {
     const pickupDuration = selectedMotor.pickupDate.split("-");
     const dropoffDuration = selectedMotor.dropoffDate.split("-");
@@ -65,133 +71,136 @@ const Checkout = ({ selectedMotor, setSelectedMotor, addBookingDetails }) => {
     addBookingDetails(details);
     //reset form
     formRef.current.reset();
+
+    setIsFormSubmit(true);
   };
 
   return (
-    <div className={classes["checkout--row"]}>
-      <div className={classes["checkout--col"]}>
-        <h2 className={classes["form--heading"]}>
-          Please provide your information
-        </h2>
-        <div className={classes["form--container"]}>
-          <form
-            className={classes["form--details"]}
-            onSubmit={formSubmissionHandler}
-            ref={formRef}
-          >
-            <div className={`${classes["input-container"]} ${classes.ic1}`}>
-              <input
-                type="text"
-                placeholder=""
-                className={classes.input}
-                id="firstName"
-                required
-                ref={firstNameRef}
-              />
-              <div className={classes.cut}></div>
-              <label htmlFor="firstName" className={classes.placeholder}>
-                First Name
-              </label>
+    <>
+      {isFormSubmit && <SuccessModal />}
+      <div className={classes["checkout--row"]}>
+        <div className={classes["checkout--col"]}>
+          <h2 className={classes["form--heading"]}>
+            Please provide your information
+          </h2>
+          <div className={classes["form--container"]}>
+            <form
+              className={classes["form--details"]}
+              onSubmit={formSubmissionHandler}
+              ref={formRef}
+            >
+              <div className={`${classes["input-container"]} ${classes.ic1}`}>
+                <input
+                  type="text"
+                  placeholder=""
+                  className={classes.input}
+                  id="firstName"
+                  required
+                  ref={firstNameRef}
+                />
+                <div className={classes.cut}></div>
+                <label htmlFor="firstName" className={classes.placeholder}>
+                  First Name
+                </label>
+              </div>
+              <div className={`${classes["input-container"]} ${classes.ic2}`}>
+                <input
+                  type="text"
+                  placeholder=""
+                  className={classes.input}
+                  id="lastName"
+                  required
+                  ref={lastNameRef}
+                />
+                <div className={classes.cut}></div>
+                <label htmlFor="lastName" className={classes.placeholder}>
+                  Last Name
+                </label>
+              </div>
+              <div className={`${classes["input-container"]} ${classes.ic2}`}>
+                <input
+                  type="email"
+                  placeholder=""
+                  className={classes.input}
+                  id="email"
+                  required
+                  ref={emailRef}
+                />
+                <div className={classes.cut}></div>
+                <label htmlFor="email" className={classes.placeholder}>
+                  Email
+                </label>
+              </div>
+              <div className={`${classes["input-container"]} ${classes.ic2}`}>
+                <input
+                  type="number"
+                  placeholder=""
+                  className={classes.input}
+                  id="phone"
+                  required
+                  ref={phoneRef}
+                />
+                <div className={classes.cut}></div>
+                <label htmlFor="phone" className={classes.placeholder}>
+                  Phone
+                </label>
+              </div>
+              <div className={classes["submit-btn"]}>
+                <button>Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className={classes["checkout--col"]}>
+          <section className={classes["reserve--container"]}>
+            <img
+              src={image}
+              alt="motor"
+              className={classes["reserve-motor__img"]}
+            />
+
+            <div className={classes["rm--content"]}>
+              <h2>{name}</h2>
+
+              <div>
+                <h3 className={classes["rm-bokngHeadngs"]}>Booking Details</h3>
+                <div className={classes["rm-destn"]}>
+                  <p className={classes["rm-bokingSubHeadng"]}>
+                    Pickup: <span>{pickupStation}</span>
+                  </p>
+                  <p className={classes["rm-bokingSubHeadng"]}>
+                    Dropoff: <span>{dropOffStation}</span>
+                  </p>
+                </div>
+                <div className={classes["rm-destn"]}>
+                  <p className={classes["rm-bokingSubHeadng"]}>
+                    Pickup Date:{" "}
+                    <span>{`${
+                      pickupDate ? pickupDate : "Available on request"
+                    }`}</span>
+                  </p>
+                  <p className={classes["rm-bokingSubHeadng"]}>
+                    Drop off Date:
+                    <span>
+                      {" "}
+                      {`${
+                        dropoffDate ? dropoffDate : "Available on request"
+                      }  `}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p className={classes["rm-bokingCost"]}>
+                  Total Cost :{" "}
+                  {`${pickupDate === "" ? price : price * totalDays} GHS`}
+                </p>
+              </div>
             </div>
-            <div className={`${classes["input-container"]} ${classes.ic2}`}>
-              <input
-                type="text"
-                placeholder=""
-                className={classes.input}
-                id="lastName"
-                required
-                ref={lastNameRef}
-              />
-              <div className={classes.cut}></div>
-              <label htmlFor="lastName" className={classes.placeholder}>
-                Last Name
-              </label>
-            </div>
-            <div className={`${classes["input-container"]} ${classes.ic2}`}>
-              <input
-                type="email"
-                placeholder=""
-                className={classes.input}
-                id="email"
-                required
-                ref={emailRef}
-              />
-              <div className={classes.cut}></div>
-              <label htmlFor="email" className={classes.placeholder}>
-                Email
-              </label>
-            </div>
-            <div className={`${classes["input-container"]} ${classes.ic2}`}>
-              <input
-                type="number"
-                placeholder=""
-                className={classes.input}
-                id="phone"
-                required
-                ref={phoneRef}
-              />
-              <div className={classes.cut}></div>
-              <label htmlFor="phone" className={classes.placeholder}>
-                Phone
-              </label>
-            </div>
-            <div className={classes["submit-btn"]}>
-              <button>Submit</button>
-            </div>
-          </form>
+          </section>
         </div>
       </div>
-      <div className={classes["checkout--col"]}>
-        <section className={classes["reserve--container"]}>
-          <img
-            src={image}
-            alt="motor"
-            className={classes["reserve-motor__img"]}
-          />
-
-          <div className={classes["rm--content"]}>
-            <h2>{name}</h2>
-
-            <div>
-              <h3 className={classes["rm-bokngHeadngs"]}>Booking Details</h3>
-              <div className={classes["rm-destn"]}>
-                <p className={classes["rm-bokingSubHeadng"]}>
-                  Pickup: <span>{pickupStation}</span>
-                </p>
-                <p className={classes["rm-bokingSubHeadng"]}>
-                  Dropoff: <span>{dropOffStation}</span>
-                </p>
-              </div>
-              <div className={classes["rm-destn"]}>
-                <p className={classes["rm-bokingSubHeadng"]}>
-                  Pickup Date:{" "}
-                  <span>{`${
-                    pickupDate ? pickupDate : "Available on request"
-                  }`}</span>
-                </p>
-                <p className={classes["rm-bokingSubHeadng"]}>
-                  Drop off Date:
-                  <span>
-                    {" "}
-                    {`${dropoffDate ? dropoffDate : "Available on request"}  `}
-                  </span>
-                </p>
-              </div>
-            </div>
-            <div>
-              <p className={classes["rm-bokingCost"]}>
-                Total Cost :{" "}
-                {`${
-                  pickupDate === ""
-                    ? price.toFixed(2)
-                    : (price * totalDays).toFixed(2)
-                } GHS`}
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
+    </>
   );
 };
 

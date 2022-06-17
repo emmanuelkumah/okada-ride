@@ -1,19 +1,10 @@
 import React, { useRef } from "react";
 import classes from "./SearchRide.module.css";
-// import { formData } from "./data";
-// import data from "../../data";
 import { FaMotorcycle } from "react-icons/fa";
 import { BsCalendarDate } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 
-const SearchRide = ({
-  getFormDetails,
-  pickupLoc,
-  dropOffLoc,
-  brands,
-  setSelectedMotor,
-  fetchMotor,
-}) => {
+const SearchRide = ({ pickupLoc, dropOffLoc, brands, setSelectedMotor }) => {
   const selectBrand = useRef(null);
   const pickupLocation = useRef(null);
   const dropoffLocation = useRef(null);
@@ -37,7 +28,6 @@ const SearchRide = ({
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // getFormDetails(searchFields);
 
     //update the data of the motor to search for
     setSelectedMotor((prevState) => {
@@ -65,6 +55,7 @@ const SearchRide = ({
             className={classes["form--select"]}
             ref={selectBrand}
             onChange={handleFormInput}
+            required
           >
             {brands.map((item, index) => (
               <option key={index} value={item}>
@@ -82,6 +73,7 @@ const SearchRide = ({
             className={classes["form--select"]}
             ref={pickupLocation}
             onChange={handleFormInput}
+            required
           >
             {pickupLoc.map((item, index) => (
               <option key={index} value={item}>
@@ -104,6 +96,7 @@ const SearchRide = ({
             name="pickup-date"
             className={classes["form--input"]}
             ref={pickupDate}
+            required
             onChange={handleFormInput}
           />
         </div>
@@ -118,6 +111,7 @@ const SearchRide = ({
             className={classes["form--select"]}
             ref={dropoffLocation}
             onChange={handleFormInput}
+            required
           >
             {dropOffLoc.map((item, index) => (
               <option key={index} value={item}>
@@ -140,6 +134,7 @@ const SearchRide = ({
             name="pickup-date"
             className={classes["form--input"]}
             ref={dropoffDate}
+            required
             onChange={handleFormInput}
           />
         </div>
