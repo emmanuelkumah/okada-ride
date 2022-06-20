@@ -1,0 +1,18 @@
+.et--row {
+  display: flex;
+  flex-wrap: wrap;
+  background: #c7ecee;
+  justify-content: space-between;
+  padding: 2rem 4.5rem;
+}
+.et--col {
+  flex: 20%;
+}
+.et--col > h2 {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.et--icon {
+  margin-right: 1rem;
+}

@@ -1,6 +1,6 @@
 .about-container {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding: 2rem 5rem;
+  background: #f5f6fa;
 }
 .about-row {
   display: flex;
@@ -11,32 +11,34 @@
   flex: 50%;
 }
 .about-img {
-  width: 90%;
-  clip-path: polygon(
-    5% 5%,
-    100% 0%,
-    100% 75%,
-    75% 75%,
-    75% 100%,
-    50% 75%,
-    0% 75%
-  );
+  width: 100%;
+  border-radius: 10px;
+}
+.about-details {
+  padding-left: 2rem;
 }
 .about-caption {
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 1.1;
+  padding-top: 1rem;
   margin-bottom: 1.5rem;
+  color: #293462;
+  text-transform: capitalize;
 }
 .about-subCaption {
   font-family: "Montserrat", sans-serif;
   font-size: 1.3rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  color: #293462;
 }
 
 .about-stats {
   display: flex;
+}
+.about-stats p {
+  font-size: 1rem;
 }
 .icon {
   font-size: 2rem;

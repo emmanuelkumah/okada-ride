@@ -1,11 +1,17 @@
 .row {
   display: flex;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .column {
   flex: 33%;
   margin: 1rem;
 }
-
+.feature-section h2,
+.feature-section p,
+.feature-caption {
+  color: #293462;
+}
 .feature-section h2,
 .feature-section p {
   font-family: "Montserrat", sans-serif;
@@ -33,5 +39,5 @@
 .icon {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 30%;
 }

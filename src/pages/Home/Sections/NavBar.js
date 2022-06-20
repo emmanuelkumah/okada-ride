@@ -39,8 +39,12 @@ const NavBar = () => {
                   Home
                 </NavLink>
               </li>
-              <li>About</li>
-              <li>Services</li>
+              <li>
+                <NavLink to="#about">About</NavLink>
+              </li>
+              <li>
+                <NavLink to="#FAQ">FAQs</NavLink>
+              </li>
               <li>
                 <NavLink activeclassname={classes.active} to="/motors">
                   Find Motors

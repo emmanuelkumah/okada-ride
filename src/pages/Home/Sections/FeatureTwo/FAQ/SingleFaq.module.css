@@ -4,7 +4,8 @@
 }
 .faq-Caption {
   padding: 2rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-weight: 200;
   color: #293462;
 }
 .faq-question {
@@ -16,7 +17,8 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .faq-question h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: lighter;
   color: #293462;
 }
 .faq-info {
@@ -26,5 +28,5 @@
   padding: 1rem;
 }
 .faq-icon {
-  color: red;
+  color: #293462;
 }

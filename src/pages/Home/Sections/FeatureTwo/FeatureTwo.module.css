@@ -1,10 +1,11 @@
 .feature-container {
-  background-color: #f5f5f5;
+  background-color: #f8efba;
   padding: 4rem;
 }
 
 .feature-row {
   display: flex;
+  flex-wrap: wrap;
 }
 .feature-col {
   flex: 50%;

@@ -13,7 +13,7 @@ export const HeroSection = () => {
         <div className={classes.column}>
           <section className={classes.heroCaption}>
             <p>Beat the Traffic</p>
-            <h2>
+            <h2 className={classes.heroHeading}>
               <span className={classes.heroText_drive}>Driving</span> is
               Stressful,<span className={classes.heroText_ride}>Riding</span> is
               Refreshing
