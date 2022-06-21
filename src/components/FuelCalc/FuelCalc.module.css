@@ -1,0 +1,34 @@
+.fContainer {
+  background-image: url("../../pages/Home/Sections/image/fuelBck.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.formSec {
+  background: aliceblue;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  margin: 0 auto;
+  width: 50vw;
+}
+.formInputs input {
+  display: grid;
+  place-items: center;
+}
+.fInput {
+  width: 70%;
+  padding: 1rem;
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.fBtn {
+  width: 70%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: #ffcf00;
+}
