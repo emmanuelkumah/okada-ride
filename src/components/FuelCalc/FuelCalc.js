@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import classes from "./FuelCalc.module.css";
 
 const FuelCalc = () => {
-  const [fuelCost, setFuelCost] = useState();
-  const [noOfGallons, setNoOfGallons] = useState();
+  const [fuelCost, setFuelCost] = useState(0);
+  const [noOfGallons, setNoOfGallons] = useState(0);
+  const [totalDistance, setTotalDistance] = useState(0);
   const [isSubmit, setIsSubmit] = useState(false);
 
   const totalDisRef = useRef();
@@ -12,6 +13,7 @@ const FuelCalc = () => {
   const formRef = useRef();
 
   const calcFuelCost = (totalDistance, fuelConsump, pricePerGallon) => {
+    setTotalDistance(totalDistance);
     const noGallons = totalDistance / fuelConsump;
     const price = noGallons * pricePerGallon;
     setNoOfGallons(noGallons);
@@ -32,11 +34,17 @@ const FuelCalc = () => {
   };
 
   const results = (
-    <section>
-      <h2>Results</h2>
+    <section className={classes.fResults}>
+      <h2>Hey!, find your results below</h2>
       <div>
-        <p>No of Gallons: {noOfGallons}</p>
-        <p>Fuel Cost: {fuelCost} GHS</p>
+        <p>
+          <span>Gas needed:</span>
+          {`${noOfGallons.toFixed(2)} Gallons`}
+        </p>
+        <p>
+          <span>Gas Cost: </span>
+          {`GHS ${fuelCost.toFixed(2)} to go ${totalDistance} miles`}
+        </p>
       </div>
     </section>
   );
@@ -44,39 +52,45 @@ const FuelCalc = () => {
     <>
       <div className={classes.fContainer}>
         <div className={classes.formSec}>
-          <section>
-            <h2>Calculate fuel consumption</h2>
+          <section className={classes.fHeading}>
+            <h2>Fuel Calculator</h2>
+            <p>
+              Easily calculate fuel cost and the gallons/ liters need to
+              complete your trip
+            </p>
           </section>
           <form
             onSubmit={handleInputs}
             ref={formRef}
             className={classes.formInputs}
           >
-            <label>Total Distance travelled</label>
+            <label className={classes.fLabel}>Total Distance Travelled</label>
             <input
               type="text"
-              placeholder="enter total distance"
+              placeholder="Enter total distance travelled in miles"
               ref={totalDisRef}
               required
               className={classes.fInput}
             />
 
             <div>
-              <label>Fuel consumption</label>
+              <label className={classes.fLabel}>Fuel Consumption</label>
               <input
                 type="number"
                 ref={fuelConsp}
                 required
                 className={classes.fInput}
+                placeholder="Enter fuel consumption (mpg)"
               />
             </div>
             <div>
-              <label>Price per gallon</label>
+              <label className={classes.fLabel}>Price Per Gallon</label>
               <input
                 type="number"
                 ref={price}
                 required
                 className={classes.fInput}
+                placeholder="Enter price of gallon of fuel"
               />
             </div>
             <button className={classes.fBtn}>Calculate</button>

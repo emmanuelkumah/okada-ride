@@ -1,21 +1,39 @@
 .fContainer {
   background-image: url("../../pages/Home/Sections/image/fuelBck.jpg");
   background-size: cover;
-  height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  position: relative;
 }
 .formSec {
   background: aliceblue;
-  padding-top: 3rem;
-  padding-left: 3rem;
-  margin: 0 auto;
+  margin: 60px auto;
   width: 50vw;
+  border-top-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
 }
-.formInputs input {
-  display: grid;
-  place-items: center;
+.fHeading {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  color: #293462;
+  text-align: center;
+}
+.fHeading > p {
+  padding-top: 1rem;
+  font-weight: 700;
+}
+.fLabel {
+  color: #293462;
+  font-size: 1.2rem;
+}
+.formInputs {
+  position: relative;
+  left: 15%;
 }
 .fInput {
   width: 70%;
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
   padding: 1rem;
   display: block;
   outline: none;
@@ -31,4 +49,25 @@
   font-size: 1.2rem;
   padding: 1rem;
   background: #ffcf00;
+}
+.fBtn:hover,
+.fBtn:active {
+  background-color: #293462;
+  color: #fff;
+}
+.fResults {
+  display: grid;
+  place-items: center;
+  padding-bottom: 2rem;
+}
+.fResults h2,
+.fResults p {
+  font-size: 1.2rem;
+  color: #293462;
+  padding-bottom: 1rem;
+  font-weight: 900;
+}
+.fResults span {
+  font-weight: 200;
+  padding-right: 1rem;
 }
