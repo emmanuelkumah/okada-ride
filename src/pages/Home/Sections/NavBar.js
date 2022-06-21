@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import classes from "./NavBar.module.css";
+import { FaTimes, FaBars } from "react-icons/fa";
 import logo from "./image/okadaLogo.png";
 import { NavLink, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMenuClicked, setsIsMenuClicked] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNav);
   }, []);
+
+  const handleMenuIconClick = () => {
+    setsIsMenuClicked(!isMenuClicked);
+  };
 
   const handleStickyNav = () => {
     if (window !== undefined) {
@@ -32,6 +38,9 @@ const NavBar = () => {
         </div>
 
         <div className={classes.navMenu}>
+          <div className={classes["nm--icon"]} onClick={handleMenuIconClick}>
+            {isMenuClicked ? <FaTimes /> : <FaBars />}
+          </div>
           <nav>
             <ul>
               <li>
