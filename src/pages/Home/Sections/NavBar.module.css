@@ -1,69 +1,92 @@
-.navContainer {
+.navBar {
   background-color: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  display: flex;
-  justify-content: space-between;
+  position: sticky;
   padding: 1rem 5rem;
+  top: 0;
   z-index: 9999;
   transition: background-color 400ms cubic-bezier(0.075, 0.82, 0.165, 1) 200ms;
 }
-.navBrand h1 {
-  font-size: 2.2rem;
+.navBrand {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
   color: #293462;
 }
 .navLogo {
   height: 30px;
 }
-.navMenu ul {
+.navBar--container,
+.navMenu,
+.navMenu--item {
   display: flex;
-  justify-content: flex-end;
-  list-style-type: none;
-  margin-right: 3rem;
 }
-.navMenu li {
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-weight: 300;
+.navBar--container {
+  align-items: center;
+  justify-content: space-between;
 }
-.navMenu a {
-  color: #293462;
+.navMenu {
+  list-style: none;
+}
+
+.navMenu--icon {
+  display: none;
+}
+.navMenu--item {
   text-decoration: none;
+  padding: 1rem;
+  color: #293462;
   font-weight: 400;
 }
-.navMenu a:hover,
-.navMenu a:active {
+.navMenu--item:hover,
+.navMenu--item:active {
   color: #ffcf00;
-  padding-bottom: 0.25rem;
-  border-bottom: 2px solid #ffcf00;
+  border-bottom: 1px solid #ffcf00;
+  transition: all 0.5s ease-in-out;
 }
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: #293462;
-}
-.sticky a,
-.sticky h1 {
-  color: #fff;
-}
-.sticky a:hover,
-.sticky a:active {
-  color: #ffcf00;
-}
-.nm--icon {
-  /* display: none; */
-}
-/* Media queries */
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* responsive navbar */
+@media only screen and (max-width: 960px) {
+  .navBar {
+    position: relative;
+    height: 80px;
+  }
+  .navMenu--icon {
+    display: block;
+    position: absolute;
+    top: 10;
+    right: 0;
+    padding: 1rem;
+  }
   .navMenu {
     display: none;
   }
-  .nm--icon {
-    display: block;
-    border: 2px solid red;
+  .navBrand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+  }
+
+  .navMenu--active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0%;
+    background-color: #293462;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+  }
+  .navMenu--item {
+    color: #fff;
+  }
+  .navMenu--item:hover,
+  .navMenu--item:active {
+    cursor: pointer;
+    color: #ffcf00;
+    border: 2px dashed #ffcf00;
+    font-weight: 500;
   }
 }
