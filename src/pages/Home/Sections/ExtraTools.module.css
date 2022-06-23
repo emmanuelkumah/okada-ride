@@ -16,3 +16,34 @@
 .et--icon {
   margin-right: 1rem;
 }
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+  .et--row {
+    padding: 2rem;
+  }
+  .et--col {
+    flex: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  .et--row {
+    padding: 2rem;
+  }
+  .et--col {
+    flex: 100%;
+  }
+}
+
+@media only screen and (min-width: 610px) and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  .et--row {
+    padding: 1rem 2rem;
+  }
+  .et--col > h2 {
+    font-size: 1.1rem;
+  }
+  .et--icon {
+    font-size: 1.5rem;
+  }
+}

@@ -24,31 +24,22 @@ const About = () => {
               all your productive hours in traffic jams
             </p>
             <div className={classes["about-stats"]}>
-              <IconContext.Provider
-                value={{
-                  color: "#f6b100",
-                  size: "2rem",
-                }}
-              >
-                <div>
-                  <FaMotorcycle />
-                </div>
-                <p className={classes["icon"]}>
-                  <span>5</span>Brands
-                </p>
-                <div>
-                  <BsShop />
-                </div>
-                <p className={classes["icon"]}>
-                  <span>13</span>Locations
-                </p>
-                <div>
-                  <GiAutoRepair />
-                </div>
-                <p className={classes["icon"]}>
-                  <span>3</span>Shops
-                </p>
-              </IconContext.Provider>
+              <div className={classes["about-icon"]}>
+                <FaMotorcycle />
+                <span>5 Brands</span>
+              </div>
+
+              <div className={classes["about-icon"]}>
+                <BsShop />
+
+                <span>13 Locations</span>
+              </div>
+
+              <div className={classes["about-icon"]}>
+                <GiAutoRepair />
+
+                <span>3 Shops</span>
+              </div>
             </div>
           </section>
         </div>

@@ -40,14 +40,65 @@
 .about-stats p {
   font-size: 1rem;
 }
-.icon {
-  font-size: 2rem;
-  margin-left: 10px;
-  margin-right: 20px;
+.about-icon {
+  color: #ffcf00;
+  font-size: 1.4rem;
 }
-.icon span {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: #f6b100;
-  font-size: 2rem;
+.about-icon span {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  color: #293462;
+}
+/* Nedia Queries */
+
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+  .about-container {
+    padding: 1rem;
+  }
+  .about-row {
+    flex-direction: column;
+  }
+  .about-col {
+    flex: 100%;
+  }
+  .about-img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .about-details {
+    margin-top: 1rem;
+  }
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-icon {
+    color: #ffcf00;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .about-icon span {
+    color: #293462;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 610px) and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  .about-row {
+    flex-direction: column;
+  }
+  .about-details {
+    margin-top: 2rem;
+  }
+  .about-icon {
+    color: #ffcf00;
+    font-size: 1.4rem;
+  }
+  .about-icon span {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    color: #293462;
+  }
 }
