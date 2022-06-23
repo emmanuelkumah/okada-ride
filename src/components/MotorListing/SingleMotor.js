@@ -35,7 +35,7 @@ const SingleMotor = ({ img, name, id, specification, price, rating }) => {
             GHS {price} <span className={classes["motor-price"]}> per day</span>
           </p>
           <Link to={`${id}`}>
-            <button className={classes["motor-btnBk"]}>View Details</button>
+            <button className={classes["motor-btnBk"]}>View</button>
           </Link>
         </div>
       </li>

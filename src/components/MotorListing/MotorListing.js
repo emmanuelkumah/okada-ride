@@ -1,7 +1,6 @@
 import React from "react";
 import SingleMotor from "./SingleMotor";
 import classes from "./MotorListing.module.css";
-import SideBar from "./SideBar";
 import Slider from "../Slider/Slider";
 import { Outlet } from "react-router-dom";
 
@@ -28,9 +27,9 @@ const MotorListing = ({
       />
       <div className={classes["motor-container"]}>
         <div className={classes["motor--sec"]}>
-          <aside className={classes["motor-sideBar"]}>
+          {/* <aside className={classes["motor-sideBar"]}>
             <SideBar />
-          </aside>
+          </aside> */}
           {motorData.length === 0 && (
             <h2 className={classes["motor--unavailable"]}>
               No Available Motors

@@ -71,3 +71,39 @@
   font-weight: 200;
   padding-right: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+  .formSec {
+    width: 85vw;
+  }
+  .formInputs {
+    left: 6%;
+  }
+  .fInput {
+    width: 90%;
+  }
+  .fBtn {
+    width: 90%;
+  }
+  .fResults {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .formSec {
+    width: 85vw;
+  }
+  .formInputs {
+    left: 6%;
+  }
+  .fInput {
+    width: 90%;
+  }
+  .fBtn {
+    width: 90%;
+  }
+  .fResults {
+    padding: 1rem;
+  }
+}

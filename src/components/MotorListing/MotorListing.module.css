@@ -1,22 +1,16 @@
 .motor-container {
   background-color: #fafafa;
-  padding: 4rem 2.5rem 5rem 2.5rem;
+  padding: 6rem 3rem;
 }
 .motor-card {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 ul {
   list-style-type: none;
 }
-.motor-sideBar {
-  background-color: #fff;
-  width: 200px;
-  height: 500px;
-  position: sticky;
-  top: 50px;
-  float: left;
-}
+
 .motor--banner {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -32,4 +26,18 @@ ul {
   text-align: center;
   font-size: 1.5rem;
   color: #15172b;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+  .motor-container {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .motor-container {
+    padding: 1rem;
+  }
 }

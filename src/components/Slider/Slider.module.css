@@ -50,3 +50,40 @@
   transform: scale(1.4);
   color: #ffcf00;
 }
+
+@media only screen and (max-width: 600px) {
+  /* Big smart phones */
+  .slide-banner {
+    width: 100%;
+  }
+  .slide-content > h2 {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  .slide-content > p {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .slide-arrLeft,
+  .slide-arrRight {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .slide-banner {
+    width: 100%;
+  }
+  .slide-content > h2 {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  .slide-content > p {
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+  }
+  .slide-arrLeft,
+  .slide-arrRight {
+    font-size: 1.5rem;
+  }
+}

@@ -48,3 +48,13 @@
   cursor: pointer;
   color: #15172b;
 }
+
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 80vw;
+    left: 10%;
+  }
+}
+
+@media screen and(min-width:601px) and (max-width: 1200px) {
+}

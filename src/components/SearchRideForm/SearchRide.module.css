@@ -4,7 +4,6 @@
   padding: 2rem 6rem;
   position: relative;
   bottom: 50px;
-  /* border: 1px solid red; */
 }
 .form--fields {
   display: flex;
@@ -51,6 +50,30 @@ button:active {
   color: #ffcf00;
   transition: all 0.5s ease-in-out;
 }
-/* input[type="date"] {
-  border: 1px solid #fff;
-} */
+
+@media only screen and (max-width: 600px) {
+  .form--container {
+    padding: 3rem 1.5rem;
+  }
+  .form--fields {
+    flex-direction: column;
+  }
+  .form--label {
+    margin-top: 1rem;
+  }
+  .btn--search button {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .form--fields {
+    flex-direction: column;
+  }
+  .form--label {
+    margin-top: 1rem;
+  }
+  .btn--search button {
+    width: 100%;
+  }
+}

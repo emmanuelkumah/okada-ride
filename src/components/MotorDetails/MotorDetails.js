@@ -5,13 +5,9 @@ import classes from "./MotorDetails.module.css";
 const MotorDetails = ({ getMotorDetails, setSelectedMotor }) => {
   const params = useParams();
   const { motorId } = params;
-  // console.log("the details is here", selectedMotrDetls);
-
-  // const motorDetails = getMotorDetails(parseInt(motorId));
 
   const motorDetails = getMotorDetails(parseInt(motorId));
 
-  // console.log("output", motorDetails);
   const {
     brand,
     name,

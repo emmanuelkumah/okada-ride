@@ -22,7 +22,7 @@
   color: #293462;
 }
 .motor-brand {
-  background-color: #f6b100;
+  background-color: #ffcf00;
   padding: 0.5rem;
   font-weight: 500;
   border-bottom-left-radius: 10px;
@@ -39,7 +39,7 @@
 
 .motorCost--perDay {
   font-weight: 100;
-  color: #f6b100;
+  color: #ffcf00;
   margin-left: 1rem;
 }
 .motor-img {
@@ -53,7 +53,7 @@
 .motor-overview,
 .motorSpecs-container,
 .motor-name {
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   background: #fff;
   border-radius: 10px;
@@ -83,7 +83,7 @@
   width: 100%;
   border: none;
   outline: none;
-  background: #f6b100;
+  background: #ffcf00;
   padding: 1rem;
   font-size: 1.3rem;
   border-radius: 10px;
@@ -96,4 +96,39 @@
   background: #293462;
   transition: all 0.5s ease-in;
   color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .motor-details--container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+  .motor-col {
+    flex: 100%;
+  }
+  .motor-img {
+    width: 100%;
+  }
+  .motor-name {
+    flex-wrap: wrap;
+  }
+  .motor-col > article {
+    padding: 1.5rem 0.5rem;
+  }
+  .motor--specs {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .motor-details--container {
+    flex-wrap: wrap;
+  }
+  .motor-img {
+    width: 100%;
+  }
+  .motor-col > article {
+    padding: 2rem 0.5rem;
+  }
 }

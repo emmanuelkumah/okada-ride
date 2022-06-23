@@ -1,7 +1,7 @@
 .motor--item {
-  flex-basis: 30%;
+  flex-basis: 26%;
   background-color: #fff;
-  margin: 14px;
+  margin: 24px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 1rem;
   border-radius: 10px;
@@ -89,13 +89,12 @@ img:active {
 }
 
 .motor-btnBk {
-  /* width: 40%; */
   border: none;
   background-color: #293462;
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   color: #fff;
-  padding: 0.4rem;
+  padding: 0.5rem 1.5rem;
   font-size: 1.1rem;
 }
 .motor-btnBk:hover,
@@ -104,4 +103,28 @@ img:active {
   color: #293462;
   transition: all 0.5s ease-in;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .motor--item {
+    flex: 100%;
+  }
+  .motor--rating {
+    top: 10px;
+    left: 77%;
+  }
+
+  .motor--priceContainer span {
+    padding: 0.1rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .motor--item {
+    flex-basis: 40%;
+  }
+  .motor--rating {
+    top: 10px;
+    left: 73%;
+  }
 }

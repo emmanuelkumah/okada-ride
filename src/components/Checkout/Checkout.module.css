@@ -107,7 +107,6 @@
   cursor: pointer;
 }
 .reserve--container {
-  /* background: #e2ebf0; */
   padding: 2rem 4rem;
 }
 .reserve-motor__img {
@@ -150,4 +149,33 @@
   background: #cfd9df;
   padding: 1rem;
   border-left: 2px solid #15172b;
+}
+
+@media screen and (max-width: 600px) {
+  .checkout--row {
+    flex-direction: column-reverse;
+    padding: 2rem 1.5rem;
+  }
+  .reserve--container {
+    padding: 1rem;
+  }
+  .reserve-motor__img {
+    width: 100%;
+  }
+  .rm-bokingSubHeadng span {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .checkout--row {
+    flex-wrap: wrap-reverse;
+    padding: 2rem 1.5rem;
+  }
+  .reserve-motor__img {
+    width: 100%;
+  }
+
+  .form--heading {
+    text-align: center;
+  }
 }

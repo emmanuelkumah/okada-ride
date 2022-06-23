@@ -146,7 +146,7 @@ const Checkout = ({
                 </label>
               </div>
               <div className={classes["submit-btn"]}>
-                <button>Submit</button>
+                <button>Submit Details</button>
               </div>
             </form>
           </div>
