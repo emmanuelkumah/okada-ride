@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./NavBar.module.css";
 import { FaTimes, FaBars } from "react-icons/fa";
 import logo from "./image/okadaLogo.png";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 const NavBar = () => {
-  // const [isSticky, setIsSticky] = useState(false);
   const [isMenuClicked, setsIsMenuClicked] = useState(false);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleStickyNav);
-  // }, []);
 
   const handleMenuIconClick = () => {
     setsIsMenuClicked(!isMenuClicked);
   };
-
-  // const handleStickyNav = () => {
-  //   if (window !== undefined) {
-  //     let windowHeight = window.scrollY;
-  //     windowHeight > 150 ? setIsSticky(true) : setIsSticky(false);
-  //   }
-  // };
 
   return (
     <>
@@ -54,16 +42,7 @@ const NavBar = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink className={classes["navMenu--item"]} to="#about">
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className={classes["navMenu--item"]} to="#FAQ">
-                  FAQs
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink className={classes["navMenu--item"]} to="/motors">
                   Find Motors

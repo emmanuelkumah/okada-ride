@@ -13,7 +13,7 @@
 .review-container p,
 .review-container h4 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .review-container p {
   padding-top: 60px;
@@ -53,4 +53,26 @@
 .next-btn:hover {
   color: #f6b100;
   transform: scale(1.5);
+}
+
+@media only screen and (max-width: 425px) {
+  .quote-icon {
+    top: 160px;
+  }
+}
+
+@media only screen and(max-width: 600px) {
+  .quote-icon {
+    top: 160px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  .review-container {
+    top: 40px;
+  }
+  .quote-icon {
+    top: 160px;
+  }
 }

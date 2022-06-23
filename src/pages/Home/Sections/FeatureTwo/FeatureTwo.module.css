@@ -10,3 +10,30 @@
 .feature-col {
   flex: 50%;
 }
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+  .feature-row {
+    flex-direction: column;
+  }
+  .feature-col {
+    flex: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .feature-row {
+    flex-direction: column;
+  }
+  .feature-col {
+    flex: 100%;
+  }
+  .feature-container {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  .feature-container {
+    padding: 1rem;
+  }
+}

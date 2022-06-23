@@ -4,7 +4,7 @@ import aboutImg from "./image/riders.png";
 import { FaMotorcycle } from "react-icons/fa";
 import { GiAutoRepair } from "react-icons/gi";
 import { BsShop } from "react-icons/bs";
-import { IconContext } from "react-icons/lib";
+
 const About = () => {
   return (
     <div className={classes["about-container"]}>

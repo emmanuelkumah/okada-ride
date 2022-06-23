@@ -136,7 +136,7 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(260px);
+      transform: translateX(100px);
     }
   }
   @keyframes birds {
@@ -144,7 +144,7 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(460px);
+      transform: translateX(160px);
     }
   }
 }
