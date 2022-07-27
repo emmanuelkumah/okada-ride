@@ -34,6 +34,7 @@ function App() {
     fetchMotor();
   }, [selectedMotor]);
 
+  //get motor details
   function fetchMotor() {
     if (selectedMotor.brand !== "") {
       const fetchedData = data.filter((motor) => {

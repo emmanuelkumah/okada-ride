@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import classes from "./Checkout.module.css";
-import axios from "axios";
-
-// import { sendEmails, options } from "../../utils/sendEmail";
+import emailjs from "@emailjs/browser";
 
 const Checkout = ({
   selectedMotor,
@@ -51,31 +49,8 @@ const Checkout = ({
     let month = Math.abs(+pickupMonth - +dropoffMonth);
     let day = Math.abs(+pickupDay - +dropoffDay);
     totals = month + day;
-    console.log("total days is", totals);
   };
   getRideCost();
-
-  const sendEmail = () => {
-    const options = {
-      method: "POST",
-      url: "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
-      headers: {
-        "content-type": "application/json",
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-        "X-RapidAPI-Host": "rapidprod-sendgrid-v1.p.rapidapi.com",
-      },
-      data: '{"personalizations":[{"to":[{"email":"mailkumah@gmail.com"}],"subject":"Hello, World!"}],"from":{"email":"e.fkumah@gmail.com"},"content":[{"type":"text/plain","value":"Hello, World!"}]}',
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
 
   const formSubmissionHandler = (e) => {
     e.preventDefault();
@@ -84,9 +59,7 @@ const Checkout = ({
     const email = emailRef.current.value;
     const phoneNum = phoneRef.current.value;
 
-    sendEmail();
-
-    //details to send to backend api
+    //details to send to server
     const details = {
       firstName: firstName,
       lastName: lastName,
@@ -94,9 +67,25 @@ const Checkout = ({
       phoneNum: phoneNum,
       ...selectedMotor,
     };
-    //send details to backend
+    //send details to server
     addBookingDetails(details);
+
     //sendEmail to user
+    emailjs
+      .sendForm(
+        "service_demm8xg",
+        "template_3laj1tj",
+        formRef.current,
+        process.env.REACT_APP_RAPID_API_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
 
     //reset form
     formRef.current.reset();
@@ -126,6 +115,7 @@ const Checkout = ({
                   id="firstName"
                   required
                   ref={firstNameRef}
+                  name="to_name"
                 />
                 <div className={classes.cut}></div>
                 <label htmlFor="firstName" className={classes.placeholder}>
