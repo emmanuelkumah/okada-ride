@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import classes from "./Checkout.module.css";
+import axios from "axios";
+
+// import { sendEmails, options } from "../../utils/sendEmail";
 
 const Checkout = ({
   selectedMotor,
@@ -52,12 +55,36 @@ const Checkout = ({
   };
   getRideCost();
 
+  const sendEmail = () => {
+    const options = {
+      method: "POST",
+      url: "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+        "X-RapidAPI-Host": "rapidprod-sendgrid-v1.p.rapidapi.com",
+      },
+      data: '{"personalizations":[{"to":[{"email":"mailkumah@gmail.com"}],"subject":"Hello, World!"}],"from":{"email":"e.fkumah@gmail.com"},"content":[{"type":"text/plain","value":"Hello, World!"}]}',
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+
   const formSubmissionHandler = (e) => {
     e.preventDefault();
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const email = emailRef.current.value;
     const phoneNum = phoneRef.current.value;
+
+    sendEmail();
 
     //details to send to backend api
     const details = {
@@ -69,6 +96,8 @@ const Checkout = ({
     };
     //send details to backend
     addBookingDetails(details);
+    //sendEmail to user
+
     //reset form
     formRef.current.reset();
 
